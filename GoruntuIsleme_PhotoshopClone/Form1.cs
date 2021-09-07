@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using static GoruntuIsleme_PhotoshopClone.Model;
 
 namespace GoruntuIsleme_PhotoshopClone
 {
@@ -52,13 +53,20 @@ namespace GoruntuIsleme_PhotoshopClone
         private void btnParlaklikUygula_Click(object sender, EventArgs e)
         {
             YedekFotograf = new Bitmap(pictureBox1.Image);
+            int parlaklikFark = trackBarParlaklik.Value-50;
+            Bitmap YeniFotograf = YedekFotograf;
+            if (parlaklikFark!=0)
+            {
+                YeniFotograf = Model.Parlaklik(YeniFotograf, parlaklikFark);
+            }
+            pictureBox1.Image = YeniFotograf;
             btnParlaklikGeriAl.Enabled = true;
             btnParlaklikUygula.Enabled = false;
         }
 
         private void btnParlaklikGeriAl_Click(object sender, EventArgs e)
         {
-            YedekFotograf = new Bitmap(pictureBox1.Image);
+            pictureBox1.Image = YedekFotograf;
             btnParlaklikGeriAl.Enabled = false;
             btnParlaklikUygula.Enabled = true;
         }
@@ -83,6 +91,7 @@ namespace GoruntuIsleme_PhotoshopClone
                 String ResminYolu = openFileDialog1.FileName;
                 pictureBox1.Image = Image.FromFile(ResminYolu);
                 trackBar1.Enabled = true;
+                btnParlaklikUygula.Enabled = true;
             }
             catch (Exception)
             {
