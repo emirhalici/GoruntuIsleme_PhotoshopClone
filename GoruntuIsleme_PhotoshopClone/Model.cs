@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Drawing;
+using System.Linq;
+
 namespace GoruntuIsleme_PhotoshopClone
 {
     public static class Model
@@ -339,5 +341,227 @@ namespace GoruntuIsleme_PhotoshopClone
             return CikisResmi;
         }
 
+        public static Bitmap KenarGoruntusuCikar(Bitmap GirisResmi, Bitmap BulanikResim, double Olcekleme)
+        {
+            Color OkunanRenk1, OkunanRenk2, DonusenRenk;
+            Bitmap CikisResmi;
+            int ResimGenisligi = GirisResmi.Width;
+            int ResimYuksekligi = GirisResmi.Height;
+            CikisResmi = new Bitmap(ResimGenisligi, ResimYuksekligi);
+            int R, G, B;
+            //double Olcekleme = 2; //Keskin kenaları daha iyi görmek için değerini artırıyoruz.
+            for (int x = 0; x < ResimGenisligi; x++)
+            {
+                for (int y = 0; y < ResimYuksekligi; y++)
+                {
+                    OkunanRenk1 = GirisResmi.GetPixel(x, y);
+                    OkunanRenk2 = BulanikResim.GetPixel(x, y);
+                    R = Convert.ToInt16(Olcekleme * Math.Abs(OkunanRenk1.R - OkunanRenk2.R));
+                    G = Convert.ToInt16(Olcekleme * Math.Abs(OkunanRenk1.G - OkunanRenk2.G));
+                    B = Convert.ToInt16(Olcekleme * Math.Abs(OkunanRenk1.B - OkunanRenk2.B));
+                    //===============================================================
+                    //Renkler sınırların dışına çıktıysa, sınır değer alınacak. (Dikkat: Normalizasyon yapılmamıştır. )
+                    if (R > 255) R = 255;
+                    if (G > 255) G = 255;
+                    if (B > 255) B = 255;
+                    if (R < 0) R = 0;
+                    if (G < 0) G = 0;
+                    if (B < 0) B = 0;
+                    //================================================================
+                    DonusenRenk = Color.FromArgb(R, G, B);
+                    CikisResmi.SetPixel(x, y, DonusenRenk);
+                }
+            }
+            return CikisResmi;
+        }
+        public static Bitmap KenarGoruntusunuBulanikResimleBirlestir(Bitmap GirisResmi, Bitmap KenarGoruntusu)
+        {
+            Color OkunanRenk1, OkunanRenk2, DonusenRenk;
+            Bitmap CikisResmi;
+            int ResimGenisligi = GirisResmi.Width;
+            int ResimYuksekligi = GirisResmi.Height;
+            CikisResmi = new Bitmap(ResimGenisligi, ResimYuksekligi);
+            int R, G, B;
+            for (int x = 0; x < ResimGenisligi; x++)
+            {
+                for (int y = 0; y < ResimYuksekligi; y++)
+                {
+                    OkunanRenk1 = GirisResmi.GetPixel(x, y);
+                    OkunanRenk2 = KenarGoruntusu.GetPixel(x, y);
+                    R = OkunanRenk1.R + OkunanRenk2.R;
+                    G = OkunanRenk1.G + OkunanRenk2.G;
+                    B = OkunanRenk1.B + OkunanRenk2.B;
+                    //===============================================================
+                    //Renkler sınırların dışına çıktıysa, sınır değer alınacak. //DİKKAT: Burada sınırı aşan değerler NORMALİZASYON yaparak programlanmalıdır.
+                    if (R > 255) R = 255;
+                    if (G > 255) G = 255;
+                    if (B > 255) B = 255;
+                    if (R < 0) R = 0;
+                    if (G < 0) G = 0;
+                    if (B < 0) B = 0;
+                    //================================================================
+                    DonusenRenk = Color.FromArgb(R, G, B);
+                    CikisResmi.SetPixel(x, y, DonusenRenk);
+                }
+            }
+            return CikisResmi;
+        }
+
+        public static Bitmap KenarGoruntusuKullanarakNetlestirme(Bitmap GirisResmi, Bitmap BulanikResim, double KenarOlcegi)
+        {
+            Bitmap KenarGoruntusu = KenarGoruntusuCikar(GirisResmi, BulanikResim, KenarOlcegi);
+            Bitmap CikisResmi = KenarGoruntusunuBulanikResimleBirlestir(GirisResmi, KenarGoruntusu);
+            return CikisResmi;
+        }
+
+        public static Bitmap KonvulasyonIleNetlestirme(Bitmap GirisResmi)
+        {
+            Color OkunanRenk;
+            Bitmap CikisResmi;
+            int ResimGenisligi = GirisResmi.Width;
+            int ResimYuksekligi = GirisResmi.Height;
+            CikisResmi = new Bitmap(ResimGenisligi, ResimYuksekligi);
+            int SablonBoyutu = 3;
+            int ElemanSayisi = SablonBoyutu * SablonBoyutu;
+            int x, y, i, j, toplamR, toplamG, toplamB;
+            int R, G, B;
+            int[] Matris = { 0, -2, 0, -2, 11, -2, 0, -2, 0 };
+            int MatrisToplami = 0 + -2 + 0 + -2 + 11 + -2 + 0 + -2 + 0;
+            for (x = (SablonBoyutu - 1) / 2; x < ResimGenisligi - (SablonBoyutu - 1) / 2; x++) //Resmi taramaya şablonun yarısı kadar dış kenarlardan içeride başlayacak ve bitirecek.
+            {
+                for (y = (SablonBoyutu - 1) / 2; y < ResimYuksekligi - (SablonBoyutu - 1) / 2; y++)
+                {
+                    toplamR = 0;
+                    toplamG = 0;
+                    toplamB = 0;
+                    //Şablon bölgesi (çekirdek matris) içindeki pikselleri tarıyor.
+                    int k = 0; //matris içindeki elemanları sırayla okurken kullanılacak.
+                    for (i = -((SablonBoyutu - 1) / 2); i <= (SablonBoyutu - 1) / 2; i++)
+                    {
+                        for (j = -((SablonBoyutu - 1) / 2); j <= (SablonBoyutu - 1) / 2; j++)
+                        {
+                            OkunanRenk = GirisResmi.GetPixel(x + i, y + j);
+                            toplamR = toplamR + OkunanRenk.R * Matris[k];
+                            toplamG = toplamG + OkunanRenk.G * Matris[k];
+                            toplamB = toplamB + OkunanRenk.B * Matris[k];
+                            k++;
+                        }
+                    }
+                    R = toplamR / MatrisToplami;
+                    G = toplamG / MatrisToplami;
+                    B = toplamB / MatrisToplami;
+                    //===========================================================
+                    //Renkler sınırların dışına çıktıysa, sınır değer alınacak.
+                    if (R > 255) R = 255;
+                    if (G > 255) G = 255;
+                    if (B > 255) B = 255;
+                    if (R < 0) R = 0;
+                    if (G < 0) G = 0;
+                    if (B < 0) B = 0;
+                    //===========================================================
+                    CikisResmi.SetPixel(x, y, Color.FromArgb(R, G, B));
+                }
+            }
+            return CikisResmi;
+        }
+
+        public static Bitmap KenarBulmaSobel(Bitmap giris, int esikDegeri) 
+        {
+            Bitmap CikisResmiXY = NewBitmap(giris);
+            int SablonBoyutu = 3;
+            Color Renk;
+            int P1, P2, P3, P4, P5, P6, P7, P8, P9;
+            for (int x = (SablonBoyutu - 1) / 2; x < giris.Width - (SablonBoyutu - 1) / 2; x++)
+            {
+                for (int y = (SablonBoyutu - 1) / 2; y < giris.Height - (SablonBoyutu - 1) / 2; y++)
+                {
+                    Renk = giris.GetPixel(x - 1, y - 1);
+                    P1 = (Renk.R + Renk.G + Renk.B) / 3;
+                    Renk = giris.GetPixel(x, y - 1);
+                    P2 = (Renk.R + Renk.G + Renk.B) / 3;
+                    Renk = giris.GetPixel(x + 1, y - 1);
+                    P3 = (Renk.R + Renk.G + Renk.B) / 3;
+                    Renk = giris.GetPixel(x - 1, y);
+                    P4 = (Renk.R + Renk.G + Renk.B) / 3;
+                    Renk = giris.GetPixel(x, y);
+                    P5 = (Renk.R + Renk.G + Renk.B) / 3;
+                    Renk = giris.GetPixel(x + 1, y);
+                    P6 = (Renk.R + Renk.G + Renk.B) / 3;
+                    Renk = giris.GetPixel(x - 1, y + 1);
+                    P7 = (Renk.R + Renk.G + Renk.B) / 3;
+                    Renk = giris.GetPixel(x, y + 1);
+                    P8 = (Renk.R + Renk.G + Renk.B) / 3;
+                    Renk = giris.GetPixel(x + 1, y + 1);
+                    P9 = (Renk.R + Renk.G + Renk.B) / 3;
+                    int Gx = Math.Abs(-P1 + P3 - 2 * P4 + 2 * P6 - P7 + P9);
+                    int Gy = Math.Abs(P1 + 2 * P2 + P3 - P7 - 2 * P8 - P9);
+                    int Gxy = Gx + Gy;
+
+                    if (Gx > 255) Gx = 255;
+                    if (Gy > 255) Gy = 255;
+                    if (Gxy > 255) Gxy = 255;
+
+                    if (Gx < 0) Gx = 0;
+                    if (Gy < 0) Gy = 0;
+                    if (Gxy < 0) Gxy = 0;
+
+                    if (Gx < esikDegeri) Gx = 0;
+                    if (Gy < esikDegeri) Gy = 0;
+                    if (Gxy < esikDegeri) Gxy = 0;
+                    CikisResmiXY.SetPixel(x, y, Color.FromArgb(Gxy, Gxy, Gxy));
+                }
+            }
+            return CikisResmiXY;
+        }
+
+        public static Bitmap KenarBulmaCompass(Bitmap giris, int esikDegeri)
+        {
+            Bitmap CikisResmi;
+            int ResimGenisligi = giris.Width;
+            int ResimYuksekligi = giris.Height;
+            CikisResmi = new Bitmap(ResimGenisligi, ResimYuksekligi);
+            int SablonBoyutu = 3;
+            int ToplamAci = 0;
+            int PixelSayisi = 0;
+            int[,] Matris = {
+                { -1, -1, -1, 1, -2, 1, 1, 1, 1 },
+                { -1, -1, 1, -1, -2, 1, 1, 1, 1 },
+                {-1, 1, 1, -1, -2, 1, -1, 1, 1 },
+                { 1, 1, 1, -1, -2, 1, -1, -1, 1 },
+                { 1, 1, 1, 1, -2, 1, -1, -1,-1 },
+                { 1, 1, 1, 1, -2, -1, 1, -1, -1 },
+                { 1, 1, -1, 1, -2, -1, 1, 1, -1 },
+                { 1, -1, -1, 1, -2,-1, 1, 1, 1 }
+            }; // Compass Matrisi
+            int[] gToplam = { 0, 0, 0, 0, 0, 0, 0, 0 };
+            for (int x = (SablonBoyutu - 1) / 2; x < ResimGenisligi - (SablonBoyutu - 1) / 2; x++)
+            {
+                for (int y = (SablonBoyutu - 1) / 2; y < ResimYuksekligi - (SablonBoyutu - 1) / 2; y++)
+                {
+                    int[] gDegerleri = { 0, 0, 0, 0, 0, 0, 0, 0 };
+                    for (int t = 0; t < 8; t++)
+                    {
+                        int k = 0;
+                        int G = 0;
+                        for (int i = -((SablonBoyutu - 1) / 2); i <= (SablonBoyutu - 1) / 2; i++)
+                        {
+                            for (int j = -((SablonBoyutu - 1) / 2); j <= (SablonBoyutu - 1) / 2; j++)
+                            {
+                                Color c = giris.GetPixel(x + i, y + j);
+                                int grayscale = Convert.ToInt16(c.R * 0.3 + c.G * 0.6 + c.B * 0.1);
+                                G += grayscale * Matris[t, k];
+                                k++;
+                            }
+                        }
+                        gDegerleri[t] = G;
+                    }
+                    int g = gDegerleri.Max();
+                    if (g > 255) g = 255;
+                    if (g < esikDegeri) g = 0;
+                    CikisResmi.SetPixel(x, y, Color.FromArgb(g, g, g));
+                }
+            }
+            return CikisResmi;
+        }
     }
 }

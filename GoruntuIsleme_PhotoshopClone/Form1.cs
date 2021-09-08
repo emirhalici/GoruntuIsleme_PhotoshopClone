@@ -27,6 +27,8 @@ namespace GoruntuIsleme_PhotoshopClone
             toolStripG.Enabled = boo;
             toolStripB.Enabled = boo;
             toolStripBulaniklastirma.Enabled = boo;
+            toolStripNetlestirme.Enabled = boo;
+            toolStripKenarBulma.Enabled = boo;
             trackBarR.Enabled = boo;
             trackBarG.Enabled = boo;
             trackBarB.Enabled = boo;
@@ -34,7 +36,22 @@ namespace GoruntuIsleme_PhotoshopClone
             btnHistogramGoster.Enabled = boo;
             btnBulaniklastirmaGeriAl.Enabled = boo;
             btnBulaniklastirmaUygula.Enabled = boo;
+            btnNetlestirmeGeriAl.Enabled = boo;
+            btnNetlestirmeUygula.Enabled = boo;
+            btnKenarBulmaGeriAl.Enabled = boo;
+            btnKenarBulmaUygula.Enabled = boo;
         }
+
+        public void toolStripCheck(bool boo)
+        {
+            toolStripParlaklik.Checked = boo;
+            toolStripKontrast.Checked = boo;
+            toolStripEsikleme.Checked = boo;
+            toolStripBulaniklastirma.Checked = boo;
+            toolStripNetlestirme.Checked = boo;
+            toolStripKenarBulma.Checked = boo;
+        }
+
 
         private void trackBarZoom_Scroll(object sender, EventArgs e) // fotograf goruntuleme boyutunu degistiyor
         {
@@ -52,16 +69,29 @@ namespace GoruntuIsleme_PhotoshopClone
         private void toolStripParlaklik_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = tabParlaklikKontrast;
+            toolStripCheck(false);
+            toolStripParlaklik.Checked = true;
         }
 
         private void toolStripKontrast_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = tabParlaklikKontrast;
+            toolStripCheck(false);
+            toolStripKontrast.Checked = true;
+        }
+
+        private void toolStripBulaniklastirma_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabBulaniklastirma;
+            toolStripCheck(false);
+            toolStripBulaniklastirma.Checked = true;
         }
 
         private void toolStripEsikleme_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = tabEsikleme;
+            toolStripCheck(false);
+            toolStripEsikleme.Checked = true;
         }
 
         private void trackBarKontrast_Scroll(object sender, EventArgs e)
@@ -353,6 +383,111 @@ namespace GoruntuIsleme_PhotoshopClone
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = tabBulaniklastirma;
+            toolStripCheck(false);
+            toolStripParlaklik.Checked = true;
+        }
+
+        private void trackBarNetlestirme_Scroll(object sender, EventArgs e)
+        {
+            labelNetlestirme.Text = ((trackBarNetlestirme.Value * 2) + 1).ToString();
+        }
+
+        private void btnNetlestirmeUygula_Click(object sender, EventArgs e)
+        {
+            YedekFotograf = new Bitmap(pictureBox1.Image);
+            int Olcek = (trackBarNetlestirme.Value * 2) + 1;
+            Bitmap YeniFotograf = new Bitmap(YedekFotograf.Width, YedekFotograf.Height);
+            if (radioBtnNetlestirmeKenar.Checked) {
+                Bitmap BulanikResim = Model.BulaniklastirmaMean(YedekFotograf, Olcek);
+                YeniFotograf = Model.KenarGoruntusuKullanarakNetlestirme(YedekFotograf, BulanikResim, Olcek);
+            } else if (radioBtnNetlestirmeKonvulasyon.Checked) {
+                YeniFotograf = Model.KonvulasyonIleNetlestirme(YedekFotograf); 
+            }
+            pictureBox1.Image = YeniFotograf;
+            btnNetlestirmeGeriAl.Enabled = true;
+            btnNetlestirmeUygula.Enabled = false;
+        }
+
+        private void btnNetlestirmeGeriAl_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = YedekFotograf;
+            btnNetlestirmeGeriAl.Enabled = false;
+            btnNetlestirmeUygula.Enabled = true;
+        }
+
+        private void toolStripNetlestirme_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabNetlestirme;
+            toolStripCheck(false);
+            toolStripNetlestirme.Checked = true;
+        }
+
+        private void trackBarKenarBulmaEsik_Scroll(object sender, EventArgs e)
+        {
+            labelKenarBulmaEsik.Text = trackBarKenarBulmaEsik.Value.ToString();
+        }
+
+        private void toolStripKenarBulma_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabKenarBulma;
+            toolStripCheck(false);
+            toolStripKenarBulma.Checked = true;
+        }
+
+        private void btnKenarBulmaUygula_Click(object sender, EventArgs e)
+        {
+            YedekFotograf = new Bitmap(pictureBox1.Image);
+            int esikDegeri = trackBarKenarBulmaEsik.Value;
+            Bitmap YeniFotograf = new Bitmap(YedekFotograf.Width, YedekFotograf.Height);
+            if (radioBtnKenarBulmaSobel.Checked)
+            {
+                YeniFotograf = Model.KenarBulmaSobel(YedekFotograf, esikDegeri);
+            } 
+            else if (radioBtnKenarBulmaCompass.Checked)
+            {
+                YeniFotograf = Model.KenarBulmaCompass(YedekFotograf, esikDegeri);
+            } else if (radioBtnKenarBulmaFarkAlarak.Checked)
+            {
+                int olcek = trackBarKenarBulmaOlcek.Value;
+                Bitmap BulanikResim = Model.BulaniklastirmaMean(YedekFotograf, 3);
+                YeniFotograf = Model.KenarGoruntusuCikar(YedekFotograf, BulanikResim, olcek);
+            }
+            pictureBox1.Image = YeniFotograf;
+            btnKenarBulmaGeriAl.Enabled = true;
+            btnKenarBulmaUygula.Enabled = false;
+        }
+
+        private void btnKenarBulmaGeriAl_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = YedekFotograf;
+            btnKenarBulmaGeriAl.Enabled = false;
+            btnKenarBulmaUygula.Enabled = true;
+        }
+
+        private void radioBtnKenarBulmaFarkAlarak_CheckedChanged(object sender, EventArgs e)
+        {
+            labelKenarBulmaOlcek.Visible = true;
+            labelKenarBulmaOlcekText.Visible = true;
+            trackBarKenarBulmaOlcek.Visible = true;
+        }
+
+        private void radioBtnKenarBulmaCompass_CheckedChanged(object sender, EventArgs e)
+        {
+            labelKenarBulmaOlcek.Visible = false;
+            labelKenarBulmaOlcekText.Visible = false;
+            trackBarKenarBulmaOlcek.Visible = false;
+        }
+
+        private void radioBtnKenarBulmaSobel_CheckedChanged(object sender, EventArgs e)
+        {
+            labelKenarBulmaOlcek.Visible = false;
+            labelKenarBulmaOlcekText.Visible = false;
+            trackBarKenarBulmaOlcek.Visible = false;
+        }
+
+        private void trackBarKenarBulmaOlcek_Scroll(object sender, EventArgs e)
+        {
+            labelKenarBulmaOlcek.Text = trackBarKenarBulmaOlcek.Value.ToString();
         }
     }
 }

@@ -49,9 +49,9 @@ namespace GoruntuIsleme_PhotoshopClone
             this.toolStripB = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripBulaniklastirma = new System.Windows.Forms.ToolStripButton();
-            this.printToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripNetlestirme = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.cutToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripKenarBulma = new System.Windows.Forms.ToolStripButton();
             this.copyToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.pasteToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -68,6 +68,15 @@ namespace GoruntuIsleme_PhotoshopClone
             this.trackBarParlaklik = new System.Windows.Forms.TrackBar();
             this.label2 = new System.Windows.Forms.Label();
             this.tabEsikleme = new System.Windows.Forms.TabPage();
+            this.btnHistogramGoster = new System.Windows.Forms.Button();
+            this.btnEsikGeriAl = new System.Windows.Forms.Button();
+            this.btnEsikUygula = new System.Windows.Forms.Button();
+            this.labelEsik2 = new System.Windows.Forms.Label();
+            this.trackBarEsik2 = new System.Windows.Forms.TrackBar();
+            this.labelEsik2Text = new System.Windows.Forms.Label();
+            this.labelEsik1 = new System.Windows.Forms.Label();
+            this.trackBarEsik1 = new System.Windows.Forms.TrackBar();
+            this.labelEsik1Text = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radioBtnCiftEsik = new System.Windows.Forms.RadioButton();
             this.radioBtnTekEsik = new System.Windows.Forms.RadioButton();
@@ -82,9 +91,25 @@ namespace GoruntuIsleme_PhotoshopClone
             this.trackBarR = new System.Windows.Forms.TrackBar();
             this.label7 = new System.Windows.Forms.Label();
             this.tabBulaniklastirma = new System.Windows.Forms.TabPage();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.labelBulaniklastirma = new System.Windows.Forms.Label();
+            this.trackBarBulaniklastirmaKatsayi = new System.Windows.Forms.TrackBar();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnBulaniklastirmaGeriAl = new System.Windows.Forms.Button();
+            this.btnBulaniklastirmaUygula = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.radioBtnGauss = new System.Windows.Forms.RadioButton();
+            this.radioBtnMedian = new System.Windows.Forms.RadioButton();
+            this.radioBtnMean = new System.Windows.Forms.RadioButton();
+            this.tabNetlestirme = new System.Windows.Forms.TabPage();
+            this.labelNetlestirme = new System.Windows.Forms.Label();
+            this.trackBarNetlestirme = new System.Windows.Forms.TrackBar();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnNetlestirmeGeriAl = new System.Windows.Forms.Button();
+            this.btnNetlestirmeUygula = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.radioBtnNetlestirmeKonvulasyon = new System.Windows.Forms.RadioButton();
+            this.radioBtnNetlestirmeKenar = new System.Windows.Forms.RadioButton();
+            this.tabKenarBulma = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.labelZoom = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -93,24 +118,18 @@ namespace GoruntuIsleme_PhotoshopClone
             this.toolStripYeni = new System.Windows.Forms.ToolStripButton();
             this.toolStripAc = new System.Windows.Forms.ToolStripButton();
             this.toolStripKaydet = new System.Windows.Forms.ToolStripButton();
-            this.labelEsik2 = new System.Windows.Forms.Label();
-            this.trackBarEsik2 = new System.Windows.Forms.TrackBar();
-            this.labelEsik2Text = new System.Windows.Forms.Label();
-            this.labelEsik1 = new System.Windows.Forms.Label();
-            this.trackBarEsik1 = new System.Windows.Forms.TrackBar();
-            this.labelEsik1Text = new System.Windows.Forms.Label();
-            this.btnEsikGeriAl = new System.Windows.Forms.Button();
-            this.btnEsikUygula = new System.Windows.Forms.Button();
-            this.btnHistogramGoster = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioBtnMedian = new System.Windows.Forms.RadioButton();
-            this.radioBtnMean = new System.Windows.Forms.RadioButton();
-            this.radioBtnGauss = new System.Windows.Forms.RadioButton();
-            this.btnBulaniklastirmaGeriAl = new System.Windows.Forms.Button();
-            this.btnBulaniklastirmaUygula = new System.Windows.Forms.Button();
-            this.labelBulaniklastirma = new System.Windows.Forms.Label();
-            this.trackBarBulaniklastirmaKatsayi = new System.Windows.Forms.TrackBar();
-            this.label6 = new System.Windows.Forms.Label();
+            this.labelKenarBulmaEsik = new System.Windows.Forms.Label();
+            this.trackBarKenarBulmaEsik = new System.Windows.Forms.TrackBar();
+            this.label10 = new System.Windows.Forms.Label();
+            this.btnKenarBulmaGeriAl = new System.Windows.Forms.Button();
+            this.btnKenarBulmaUygula = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.radioBtnKenarBulmaCompass = new System.Windows.Forms.RadioButton();
+            this.radioBtnKenarBulmaSobel = new System.Windows.Forms.RadioButton();
+            this.radioBtnKenarBulmaFarkAlarak = new System.Windows.Forms.RadioButton();
+            this.labelKenarBulmaOlcek = new System.Windows.Forms.Label();
+            this.trackBarKenarBulmaOlcek = new System.Windows.Forms.TrackBar();
+            this.labelKenarBulmaOlcekText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarZoom)).BeginInit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -123,17 +142,24 @@ namespace GoruntuIsleme_PhotoshopClone
             ((System.ComponentModel.ISupportInitialize)(this.trackBarKontrast)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarParlaklik)).BeginInit();
             this.tabEsikleme.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarEsik2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarEsik1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tabRenkler.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarR)).BeginInit();
             this.tabBulaniklastirma.SuspendLayout();
-            this.toolStrip2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarEsik2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarEsik1)).BeginInit();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarBulaniklastirmaKatsayi)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.tabNetlestirme.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarNetlestirme)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            this.tabKenarBulma.SuspendLayout();
+            this.toolStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarKenarBulmaEsik)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarKenarBulmaOlcek)).BeginInit();
             this.SuspendLayout();
             // 
             // BottomToolStripPanel
@@ -183,7 +209,7 @@ namespace GoruntuIsleme_PhotoshopClone
             this.trackBarZoom.Maximum = 250;
             this.trackBarZoom.Minimum = 1;
             this.trackBarZoom.Name = "trackBarZoom";
-            this.trackBarZoom.Size = new System.Drawing.Size(183, 71);
+            this.trackBarZoom.Size = new System.Drawing.Size(183, 45);
             this.trackBarZoom.TabIndex = 1;
             this.trackBarZoom.Value = 100;
             this.trackBarZoom.Scroll += new System.EventHandler(this.trackBarZoom_Scroll);
@@ -205,50 +231,53 @@ namespace GoruntuIsleme_PhotoshopClone
             this.toolStripB,
             this.toolStripSeparator4,
             this.toolStripBulaniklastirma,
-            this.printToolStripButton,
+            this.toolStripNetlestirme,
+            this.toolStripKenarBulma,
             this.toolStripSeparator,
-            this.cutToolStripButton,
             this.copyToolStripButton,
             this.pasteToolStripButton,
             this.toolStripSeparator3});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(58, 561);
+            this.toolStrip1.Size = new System.Drawing.Size(62, 596);
             this.toolStrip1.TabIndex = 0;
             // 
             // toolStripParlaklik
             // 
+            this.toolStripParlaklik.CheckOnClick = true;
             this.toolStripParlaklik.Enabled = false;
             this.toolStripParlaklik.Image = ((System.Drawing.Image)(resources.GetObject("toolStripParlaklik.Image")));
             this.toolStripParlaklik.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripParlaklik.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripParlaklik.Name = "toolStripParlaklik";
-            this.toolStripParlaklik.Size = new System.Drawing.Size(55, 49);
+            this.toolStripParlaklik.Size = new System.Drawing.Size(59, 49);
             this.toolStripParlaklik.Text = "Parlaklık";
             this.toolStripParlaklik.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripParlaklik.Click += new System.EventHandler(this.toolStripParlaklik_Click);
             // 
             // toolStripKontrast
             // 
+            this.toolStripKontrast.CheckOnClick = true;
             this.toolStripKontrast.Enabled = false;
             this.toolStripKontrast.Image = ((System.Drawing.Image)(resources.GetObject("toolStripKontrast.Image")));
             this.toolStripKontrast.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripKontrast.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripKontrast.Name = "toolStripKontrast";
-            this.toolStripKontrast.Size = new System.Drawing.Size(55, 49);
+            this.toolStripKontrast.Size = new System.Drawing.Size(59, 49);
             this.toolStripKontrast.Text = "Kontrast";
             this.toolStripKontrast.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripKontrast.Click += new System.EventHandler(this.toolStripKontrast_Click);
             // 
             // toolStripEsikleme
             // 
+            this.toolStripEsikleme.CheckOnClick = true;
             this.toolStripEsikleme.Enabled = false;
             this.toolStripEsikleme.Image = ((System.Drawing.Image)(resources.GetObject("toolStripEsikleme.Image")));
             this.toolStripEsikleme.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripEsikleme.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripEsikleme.Name = "toolStripEsikleme";
-            this.toolStripEsikleme.Size = new System.Drawing.Size(55, 49);
+            this.toolStripEsikleme.Size = new System.Drawing.Size(59, 49);
             this.toolStripEsikleme.Text = "Eşikleme";
             this.toolStripEsikleme.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripEsikleme.Click += new System.EventHandler(this.toolStripEsikleme_Click);
@@ -261,7 +290,7 @@ namespace GoruntuIsleme_PhotoshopClone
             this.toolStripNegatif.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripNegatif.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripNegatif.Name = "toolStripNegatif";
-            this.toolStripNegatif.Size = new System.Drawing.Size(55, 49);
+            this.toolStripNegatif.Size = new System.Drawing.Size(59, 49);
             this.toolStripNegatif.Text = "Negatif";
             this.toolStripNegatif.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripNegatif.Click += new System.EventHandler(this.toolStripNegatif_Click);
@@ -274,7 +303,7 @@ namespace GoruntuIsleme_PhotoshopClone
             this.toolStripGri.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripGri.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripGri.Name = "toolStripGri";
-            this.toolStripGri.Size = new System.Drawing.Size(55, 49);
+            this.toolStripGri.Size = new System.Drawing.Size(59, 49);
             this.toolStripGri.Text = "Gri";
             this.toolStripGri.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripGri.Click += new System.EventHandler(this.toolStripGri_Click);
@@ -282,12 +311,12 @@ namespace GoruntuIsleme_PhotoshopClone
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(55, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(59, 6);
             // 
             // toolStripLabel2
             // 
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(55, 15);
+            this.toolStripLabel2.Size = new System.Drawing.Size(59, 15);
             this.toolStripLabel2.Text = "Renkler";
             // 
             // toolStripR
@@ -301,7 +330,7 @@ namespace GoruntuIsleme_PhotoshopClone
             this.toolStripR.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripR.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripR.Name = "toolStripR";
-            this.toolStripR.Size = new System.Drawing.Size(55, 34);
+            this.toolStripR.Size = new System.Drawing.Size(59, 34);
             this.toolStripR.Text = "Kırmızı";
             this.toolStripR.Click += new System.EventHandler(this.toolStripR_Click);
             // 
@@ -316,7 +345,7 @@ namespace GoruntuIsleme_PhotoshopClone
             this.toolStripG.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripG.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripG.Name = "toolStripG";
-            this.toolStripG.Size = new System.Drawing.Size(55, 34);
+            this.toolStripG.Size = new System.Drawing.Size(59, 34);
             this.toolStripG.Text = "Yeşil";
             this.toolStripG.Click += new System.EventHandler(this.toolStripG_Click);
             // 
@@ -331,14 +360,14 @@ namespace GoruntuIsleme_PhotoshopClone
             this.toolStripB.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripB.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripB.Name = "toolStripB";
-            this.toolStripB.Size = new System.Drawing.Size(55, 34);
+            this.toolStripB.Size = new System.Drawing.Size(59, 34);
             this.toolStripB.Text = "Mavi";
             this.toolStripB.Click += new System.EventHandler(this.toolStripB_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(55, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(59, 6);
             // 
             // toolStripBulaniklastirma
             // 
@@ -349,35 +378,41 @@ namespace GoruntuIsleme_PhotoshopClone
             this.toolStripBulaniklastirma.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripBulaniklastirma.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBulaniklastirma.Name = "toolStripBulaniklastirma";
-            this.toolStripBulaniklastirma.Size = new System.Drawing.Size(55, 47);
+            this.toolStripBulaniklastirma.Size = new System.Drawing.Size(59, 47);
             this.toolStripBulaniklastirma.Text = "Bulanık";
             this.toolStripBulaniklastirma.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripBulaniklastirma.Click += new System.EventHandler(this.toolStripButton5_Click);
+            this.toolStripBulaniklastirma.Click += new System.EventHandler(this.toolStripBulaniklastirma_Click);
             // 
-            // printToolStripButton
+            // toolStripNetlestirme
             // 
-            this.printToolStripButton.CheckOnClick = true;
-            this.printToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.printToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("printToolStripButton.Image")));
-            this.printToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.printToolStripButton.Name = "printToolStripButton";
-            this.printToolStripButton.Size = new System.Drawing.Size(55, 20);
-            this.printToolStripButton.Text = "&Print";
+            this.toolStripNetlestirme.CheckOnClick = true;
+            this.toolStripNetlestirme.Enabled = false;
+            this.toolStripNetlestirme.Image = ((System.Drawing.Image)(resources.GetObject("toolStripNetlestirme.Image")));
+            this.toolStripNetlestirme.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripNetlestirme.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripNetlestirme.Name = "toolStripNetlestirme";
+            this.toolStripNetlestirme.Size = new System.Drawing.Size(59, 49);
+            this.toolStripNetlestirme.Text = "Netleştir";
+            this.toolStripNetlestirme.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripNetlestirme.Click += new System.EventHandler(this.toolStripNetlestirme_Click);
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(55, 6);
+            this.toolStripSeparator.Size = new System.Drawing.Size(59, 6);
             // 
-            // cutToolStripButton
+            // toolStripKenarBulma
             // 
-            this.cutToolStripButton.CheckOnClick = true;
-            this.cutToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.cutToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("cutToolStripButton.Image")));
-            this.cutToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.cutToolStripButton.Name = "cutToolStripButton";
-            this.cutToolStripButton.Size = new System.Drawing.Size(55, 20);
-            this.cutToolStripButton.Text = "C&ut";
+            this.toolStripKenarBulma.CheckOnClick = true;
+            this.toolStripKenarBulma.Enabled = false;
+            this.toolStripKenarBulma.Image = ((System.Drawing.Image)(resources.GetObject("toolStripKenarBulma.Image")));
+            this.toolStripKenarBulma.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripKenarBulma.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripKenarBulma.Name = "toolStripKenarBulma";
+            this.toolStripKenarBulma.Size = new System.Drawing.Size(59, 35);
+            this.toolStripKenarBulma.Text = "Kenar Bul";
+            this.toolStripKenarBulma.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripKenarBulma.Click += new System.EventHandler(this.toolStripKenarBulma_Click);
             // 
             // copyToolStripButton
             // 
@@ -386,7 +421,7 @@ namespace GoruntuIsleme_PhotoshopClone
             this.copyToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("copyToolStripButton.Image")));
             this.copyToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.copyToolStripButton.Name = "copyToolStripButton";
-            this.copyToolStripButton.Size = new System.Drawing.Size(55, 20);
+            this.copyToolStripButton.Size = new System.Drawing.Size(59, 20);
             this.copyToolStripButton.Text = "&Copy";
             // 
             // pasteToolStripButton
@@ -407,9 +442,9 @@ namespace GoruntuIsleme_PhotoshopClone
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.pictureBox1.Location = new System.Drawing.Point(58, 65);
+            this.pictureBox1.Location = new System.Drawing.Point(62, 65);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1026, 366);
+            this.pictureBox1.Size = new System.Drawing.Size(1022, 376);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -418,7 +453,7 @@ namespace GoruntuIsleme_PhotoshopClone
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
-            this.splitContainer1.Location = new System.Drawing.Point(58, 433);
+            this.splitContainer1.Location = new System.Drawing.Point(62, 468);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -430,8 +465,8 @@ namespace GoruntuIsleme_PhotoshopClone
             this.splitContainer1.Panel2.Controls.Add(this.labelZoom);
             this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Panel2.Controls.Add(this.trackBarZoom);
-            this.splitContainer1.Size = new System.Drawing.Size(1026, 128);
-            this.splitContainer1.SplitterDistance = 837;
+            this.splitContainer1.Size = new System.Drawing.Size(1022, 128);
+            this.splitContainer1.SplitterDistance = 833;
             this.splitContainer1.TabIndex = 3;
             // 
             // tabControl
@@ -441,15 +476,14 @@ namespace GoruntuIsleme_PhotoshopClone
             this.tabControl.Controls.Add(this.tabEsikleme);
             this.tabControl.Controls.Add(this.tabRenkler);
             this.tabControl.Controls.Add(this.tabBulaniklastirma);
-            this.tabControl.Controls.Add(this.tabPage1);
-            this.tabControl.Controls.Add(this.tabPage5);
-            this.tabControl.Controls.Add(this.tabPage6);
+            this.tabControl.Controls.Add(this.tabNetlestirme);
+            this.tabControl.Controls.Add(this.tabKenarBulma);
             this.tabControl.Controls.Add(this.tabPage2);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(0, 0);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(837, 128);
+            this.tabControl.Size = new System.Drawing.Size(833, 128);
             this.tabControl.TabIndex = 2;
             // 
             // tabParlaklikKontrast
@@ -465,7 +499,7 @@ namespace GoruntuIsleme_PhotoshopClone
             this.tabParlaklikKontrast.Location = new System.Drawing.Point(4, 4);
             this.tabParlaklikKontrast.Name = "tabParlaklikKontrast";
             this.tabParlaklikKontrast.Padding = new System.Windows.Forms.Padding(3);
-            this.tabParlaklikKontrast.Size = new System.Drawing.Size(829, 102);
+            this.tabParlaklikKontrast.Size = new System.Drawing.Size(825, 102);
             this.tabParlaklikKontrast.TabIndex = 0;
             this.tabParlaklikKontrast.Text = "Parlaklik ve Kontrast";
             this.tabParlaklikKontrast.UseVisualStyleBackColor = true;
@@ -475,7 +509,7 @@ namespace GoruntuIsleme_PhotoshopClone
             this.btnParlaklikGeriAl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnParlaklikGeriAl.Enabled = false;
             this.btnParlaklikGeriAl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnParlaklikGeriAl.Location = new System.Drawing.Point(731, 20);
+            this.btnParlaklikGeriAl.Location = new System.Drawing.Point(727, 20);
             this.btnParlaklikGeriAl.Name = "btnParlaklikGeriAl";
             this.btnParlaklikGeriAl.Size = new System.Drawing.Size(90, 62);
             this.btnParlaklikGeriAl.TabIndex = 11;
@@ -488,7 +522,7 @@ namespace GoruntuIsleme_PhotoshopClone
             this.btnParlaklikUygula.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnParlaklikUygula.Enabled = false;
             this.btnParlaklikUygula.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnParlaklikUygula.Location = new System.Drawing.Point(635, 20);
+            this.btnParlaklikUygula.Location = new System.Drawing.Point(631, 20);
             this.btnParlaklikUygula.Name = "btnParlaklikUygula";
             this.btnParlaklikUygula.Size = new System.Drawing.Size(90, 62);
             this.btnParlaklikUygula.TabIndex = 10;
@@ -574,10 +608,115 @@ namespace GoruntuIsleme_PhotoshopClone
             this.tabEsikleme.Location = new System.Drawing.Point(4, 4);
             this.tabEsikleme.Name = "tabEsikleme";
             this.tabEsikleme.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEsikleme.Size = new System.Drawing.Size(829, 102);
+            this.tabEsikleme.Size = new System.Drawing.Size(825, 102);
             this.tabEsikleme.TabIndex = 1;
             this.tabEsikleme.Text = "Eşikleme";
             this.tabEsikleme.UseVisualStyleBackColor = true;
+            // 
+            // btnHistogramGoster
+            // 
+            this.btnHistogramGoster.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHistogramGoster.Enabled = false;
+            this.btnHistogramGoster.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnHistogramGoster.Location = new System.Drawing.Point(729, 21);
+            this.btnHistogramGoster.Name = "btnHistogramGoster";
+            this.btnHistogramGoster.Size = new System.Drawing.Size(90, 62);
+            this.btnHistogramGoster.TabIndex = 18;
+            this.btnHistogramGoster.Text = "Histogram Göster";
+            this.btnHistogramGoster.UseVisualStyleBackColor = true;
+            this.btnHistogramGoster.Click += new System.EventHandler(this.btnHistogramGoster_Click);
+            // 
+            // btnEsikGeriAl
+            // 
+            this.btnEsikGeriAl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEsikGeriAl.Enabled = false;
+            this.btnEsikGeriAl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnEsikGeriAl.Location = new System.Drawing.Point(633, 21);
+            this.btnEsikGeriAl.Name = "btnEsikGeriAl";
+            this.btnEsikGeriAl.Size = new System.Drawing.Size(90, 62);
+            this.btnEsikGeriAl.TabIndex = 17;
+            this.btnEsikGeriAl.Text = "Geri Al";
+            this.btnEsikGeriAl.UseVisualStyleBackColor = true;
+            this.btnEsikGeriAl.Click += new System.EventHandler(this.btnEsikGeriAl_Click);
+            // 
+            // btnEsikUygula
+            // 
+            this.btnEsikUygula.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEsikUygula.Enabled = false;
+            this.btnEsikUygula.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnEsikUygula.Location = new System.Drawing.Point(537, 21);
+            this.btnEsikUygula.Name = "btnEsikUygula";
+            this.btnEsikUygula.Size = new System.Drawing.Size(90, 62);
+            this.btnEsikUygula.TabIndex = 16;
+            this.btnEsikUygula.Text = "Uygula";
+            this.btnEsikUygula.UseVisualStyleBackColor = true;
+            this.btnEsikUygula.Click += new System.EventHandler(this.btnEsikUygula_Click);
+            // 
+            // labelEsik2
+            // 
+            this.labelEsik2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelEsik2.AutoSize = true;
+            this.labelEsik2.Location = new System.Drawing.Point(504, 24);
+            this.labelEsik2.Name = "labelEsik2";
+            this.labelEsik2.Size = new System.Drawing.Size(25, 13);
+            this.labelEsik2.TabIndex = 15;
+            this.labelEsik2.Text = "255";
+            this.labelEsik2.Visible = false;
+            // 
+            // trackBarEsik2
+            // 
+            this.trackBarEsik2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.trackBarEsik2.LargeChange = 3;
+            this.trackBarEsik2.Location = new System.Drawing.Point(355, 40);
+            this.trackBarEsik2.Maximum = 255;
+            this.trackBarEsik2.Name = "trackBarEsik2";
+            this.trackBarEsik2.Size = new System.Drawing.Size(174, 45);
+            this.trackBarEsik2.TabIndex = 11;
+            this.trackBarEsik2.Value = 255;
+            this.trackBarEsik2.Visible = false;
+            this.trackBarEsik2.Scroll += new System.EventHandler(this.trackBarEsik2_Scroll);
+            // 
+            // labelEsik2Text
+            // 
+            this.labelEsik2Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelEsik2Text.AutoSize = true;
+            this.labelEsik2Text.Location = new System.Drawing.Point(355, 24);
+            this.labelEsik2Text.Name = "labelEsik2Text";
+            this.labelEsik2Text.Size = new System.Drawing.Size(46, 13);
+            this.labelEsik2Text.TabIndex = 14;
+            this.labelEsik2Text.Text = "Üst Eşik";
+            this.labelEsik2Text.Visible = false;
+            // 
+            // labelEsik1
+            // 
+            this.labelEsik1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelEsik1.AutoSize = true;
+            this.labelEsik1.Location = new System.Drawing.Point(315, 24);
+            this.labelEsik1.Name = "labelEsik1";
+            this.labelEsik1.Size = new System.Drawing.Size(13, 13);
+            this.labelEsik1.TabIndex = 13;
+            this.labelEsik1.Text = "0";
+            // 
+            // trackBarEsik1
+            // 
+            this.trackBarEsik1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.trackBarEsik1.LargeChange = 3;
+            this.trackBarEsik1.Location = new System.Drawing.Point(166, 40);
+            this.trackBarEsik1.Maximum = 255;
+            this.trackBarEsik1.Name = "trackBarEsik1";
+            this.trackBarEsik1.Size = new System.Drawing.Size(174, 45);
+            this.trackBarEsik1.TabIndex = 12;
+            this.trackBarEsik1.Scroll += new System.EventHandler(this.trackBarEsik1_Scroll);
+            // 
+            // labelEsik1Text
+            // 
+            this.labelEsik1Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelEsik1Text.AutoSize = true;
+            this.labelEsik1Text.Location = new System.Drawing.Point(166, 24);
+            this.labelEsik1Text.Name = "labelEsik1Text";
+            this.labelEsik1Text.Size = new System.Drawing.Size(27, 13);
+            this.labelEsik1Text.TabIndex = 10;
+            this.labelEsik1Text.Text = "Eşik";
             // 
             // groupBox1
             // 
@@ -628,7 +767,7 @@ namespace GoruntuIsleme_PhotoshopClone
             this.tabRenkler.Location = new System.Drawing.Point(4, 4);
             this.tabRenkler.Name = "tabRenkler";
             this.tabRenkler.Padding = new System.Windows.Forms.Padding(3);
-            this.tabRenkler.Size = new System.Drawing.Size(829, 102);
+            this.tabRenkler.Size = new System.Drawing.Size(825, 102);
             this.tabRenkler.TabIndex = 2;
             this.tabRenkler.Text = "Renkler";
             this.tabRenkler.UseVisualStyleBackColor = true;
@@ -739,47 +878,247 @@ namespace GoruntuIsleme_PhotoshopClone
             this.tabBulaniklastirma.Location = new System.Drawing.Point(4, 4);
             this.tabBulaniklastirma.Name = "tabBulaniklastirma";
             this.tabBulaniklastirma.Padding = new System.Windows.Forms.Padding(3);
-            this.tabBulaniklastirma.Size = new System.Drawing.Size(829, 102);
+            this.tabBulaniklastirma.Size = new System.Drawing.Size(825, 102);
             this.tabBulaniklastirma.TabIndex = 3;
             this.tabBulaniklastirma.Text = "Bulanıklaştırma";
             this.tabBulaniklastirma.UseVisualStyleBackColor = true;
             // 
-            // tabPage1
+            // labelBulaniklastirma
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 4);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(829, 76);
-            this.tabPage1.TabIndex = 4;
-            this.tabPage1.Text = "Netleştirme";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.labelBulaniklastirma.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelBulaniklastirma.AutoSize = true;
+            this.labelBulaniklastirma.Location = new System.Drawing.Point(476, 21);
+            this.labelBulaniklastirma.Name = "labelBulaniklastirma";
+            this.labelBulaniklastirma.Size = new System.Drawing.Size(13, 13);
+            this.labelBulaniklastirma.TabIndex = 16;
+            this.labelBulaniklastirma.Text = "3";
             // 
-            // tabPage5
+            // trackBarBulaniklastirmaKatsayi
             // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 4);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(829, 76);
-            this.tabPage5.TabIndex = 5;
-            this.tabPage5.Text = "Kenar Bulma";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.trackBarBulaniklastirmaKatsayi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.trackBarBulaniklastirmaKatsayi.LargeChange = 1;
+            this.trackBarBulaniklastirmaKatsayi.Location = new System.Drawing.Point(327, 37);
+            this.trackBarBulaniklastirmaKatsayi.Maximum = 3;
+            this.trackBarBulaniklastirmaKatsayi.Minimum = 1;
+            this.trackBarBulaniklastirmaKatsayi.Name = "trackBarBulaniklastirmaKatsayi";
+            this.trackBarBulaniklastirmaKatsayi.Size = new System.Drawing.Size(174, 45);
+            this.trackBarBulaniklastirmaKatsayi.TabIndex = 15;
+            this.trackBarBulaniklastirmaKatsayi.Value = 1;
+            this.trackBarBulaniklastirmaKatsayi.Scroll += new System.EventHandler(this.trackBarBulaniklastirmaKatsayi_Scroll);
             // 
-            // tabPage6
+            // label6
             // 
-            this.tabPage6.Location = new System.Drawing.Point(4, 4);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(789, 76);
-            this.tabPage6.TabIndex = 6;
-            this.tabPage6.Text = "tabPage6";
-            this.tabPage6.UseVisualStyleBackColor = true;
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(327, 21);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(121, 13);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Bulanıklaştırma Katsayısı";
+            // 
+            // btnBulaniklastirmaGeriAl
+            // 
+            this.btnBulaniklastirmaGeriAl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBulaniklastirmaGeriAl.Enabled = false;
+            this.btnBulaniklastirmaGeriAl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnBulaniklastirmaGeriAl.Location = new System.Drawing.Point(730, 24);
+            this.btnBulaniklastirmaGeriAl.Name = "btnBulaniklastirmaGeriAl";
+            this.btnBulaniklastirmaGeriAl.Size = new System.Drawing.Size(90, 62);
+            this.btnBulaniklastirmaGeriAl.TabIndex = 13;
+            this.btnBulaniklastirmaGeriAl.Text = "Geri Al";
+            this.btnBulaniklastirmaGeriAl.UseVisualStyleBackColor = true;
+            this.btnBulaniklastirmaGeriAl.Click += new System.EventHandler(this.btnBulaniklastirmaGeriAl_Click);
+            // 
+            // btnBulaniklastirmaUygula
+            // 
+            this.btnBulaniklastirmaUygula.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBulaniklastirmaUygula.Enabled = false;
+            this.btnBulaniklastirmaUygula.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnBulaniklastirmaUygula.Location = new System.Drawing.Point(634, 24);
+            this.btnBulaniklastirmaUygula.Name = "btnBulaniklastirmaUygula";
+            this.btnBulaniklastirmaUygula.Size = new System.Drawing.Size(90, 62);
+            this.btnBulaniklastirmaUygula.TabIndex = 12;
+            this.btnBulaniklastirmaUygula.Text = "Uygula";
+            this.btnBulaniklastirmaUygula.UseVisualStyleBackColor = true;
+            this.btnBulaniklastirmaUygula.Click += new System.EventHandler(this.btnBulaniklastirmaUygula_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.radioBtnGauss);
+            this.groupBox2.Controls.Add(this.radioBtnMedian);
+            this.groupBox2.Controls.Add(this.radioBtnMean);
+            this.groupBox2.Location = new System.Drawing.Point(6, 6);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(283, 90);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Bulanıklaştırma Algoritmaları";
+            // 
+            // radioBtnGauss
+            // 
+            this.radioBtnGauss.AutoSize = true;
+            this.radioBtnGauss.Location = new System.Drawing.Point(6, 66);
+            this.radioBtnGauss.Name = "radioBtnGauss";
+            this.radioBtnGauss.Size = new System.Drawing.Size(122, 17);
+            this.radioBtnGauss.TabIndex = 2;
+            this.radioBtnGauss.Text = "Gaussian Algoritması";
+            this.radioBtnGauss.UseVisualStyleBackColor = true;
+            // 
+            // radioBtnMedian
+            // 
+            this.radioBtnMedian.AutoSize = true;
+            this.radioBtnMedian.Location = new System.Drawing.Point(6, 43);
+            this.radioBtnMedian.Name = "radioBtnMedian";
+            this.radioBtnMedian.Size = new System.Drawing.Size(113, 17);
+            this.radioBtnMedian.TabIndex = 1;
+            this.radioBtnMedian.Text = "Median Algoritması";
+            this.radioBtnMedian.UseVisualStyleBackColor = true;
+            // 
+            // radioBtnMean
+            // 
+            this.radioBtnMean.AutoSize = true;
+            this.radioBtnMean.Checked = true;
+            this.radioBtnMean.Location = new System.Drawing.Point(6, 19);
+            this.radioBtnMean.Name = "radioBtnMean";
+            this.radioBtnMean.Size = new System.Drawing.Size(105, 17);
+            this.radioBtnMean.TabIndex = 0;
+            this.radioBtnMean.TabStop = true;
+            this.radioBtnMean.Text = "Mean Algoritması";
+            this.radioBtnMean.UseVisualStyleBackColor = true;
+            // 
+            // tabNetlestirme
+            // 
+            this.tabNetlestirme.Controls.Add(this.labelNetlestirme);
+            this.tabNetlestirme.Controls.Add(this.trackBarNetlestirme);
+            this.tabNetlestirme.Controls.Add(this.label8);
+            this.tabNetlestirme.Controls.Add(this.btnNetlestirmeGeriAl);
+            this.tabNetlestirme.Controls.Add(this.btnNetlestirmeUygula);
+            this.tabNetlestirme.Controls.Add(this.groupBox3);
+            this.tabNetlestirme.Location = new System.Drawing.Point(4, 4);
+            this.tabNetlestirme.Name = "tabNetlestirme";
+            this.tabNetlestirme.Padding = new System.Windows.Forms.Padding(3);
+            this.tabNetlestirme.Size = new System.Drawing.Size(825, 102);
+            this.tabNetlestirme.TabIndex = 4;
+            this.tabNetlestirme.Text = "Netleştirme";
+            this.tabNetlestirme.UseVisualStyleBackColor = true;
+            // 
+            // labelNetlestirme
+            // 
+            this.labelNetlestirme.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelNetlestirme.AutoSize = true;
+            this.labelNetlestirme.Location = new System.Drawing.Point(475, 21);
+            this.labelNetlestirme.Name = "labelNetlestirme";
+            this.labelNetlestirme.Size = new System.Drawing.Size(13, 13);
+            this.labelNetlestirme.TabIndex = 22;
+            this.labelNetlestirme.Text = "3";
+            // 
+            // trackBarNetlestirme
+            // 
+            this.trackBarNetlestirme.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.trackBarNetlestirme.LargeChange = 1;
+            this.trackBarNetlestirme.Location = new System.Drawing.Point(326, 37);
+            this.trackBarNetlestirme.Maximum = 3;
+            this.trackBarNetlestirme.Minimum = 1;
+            this.trackBarNetlestirme.Name = "trackBarNetlestirme";
+            this.trackBarNetlestirme.Size = new System.Drawing.Size(174, 45);
+            this.trackBarNetlestirme.TabIndex = 21;
+            this.trackBarNetlestirme.Value = 1;
+            this.trackBarNetlestirme.Scroll += new System.EventHandler(this.trackBarNetlestirme_Scroll);
+            // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(326, 21);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(103, 13);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "Netleştirme Katsayısı";
+            // 
+            // btnNetlestirmeGeriAl
+            // 
+            this.btnNetlestirmeGeriAl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNetlestirmeGeriAl.Enabled = false;
+            this.btnNetlestirmeGeriAl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnNetlestirmeGeriAl.Location = new System.Drawing.Point(729, 24);
+            this.btnNetlestirmeGeriAl.Name = "btnNetlestirmeGeriAl";
+            this.btnNetlestirmeGeriAl.Size = new System.Drawing.Size(90, 62);
+            this.btnNetlestirmeGeriAl.TabIndex = 19;
+            this.btnNetlestirmeGeriAl.Text = "Geri Al";
+            this.btnNetlestirmeGeriAl.UseVisualStyleBackColor = true;
+            this.btnNetlestirmeGeriAl.Click += new System.EventHandler(this.btnNetlestirmeGeriAl_Click);
+            // 
+            // btnNetlestirmeUygula
+            // 
+            this.btnNetlestirmeUygula.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNetlestirmeUygula.Enabled = false;
+            this.btnNetlestirmeUygula.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnNetlestirmeUygula.Location = new System.Drawing.Point(633, 24);
+            this.btnNetlestirmeUygula.Name = "btnNetlestirmeUygula";
+            this.btnNetlestirmeUygula.Size = new System.Drawing.Size(90, 62);
+            this.btnNetlestirmeUygula.TabIndex = 18;
+            this.btnNetlestirmeUygula.Text = "Uygula";
+            this.btnNetlestirmeUygula.UseVisualStyleBackColor = true;
+            this.btnNetlestirmeUygula.Click += new System.EventHandler(this.btnNetlestirmeUygula_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.radioBtnNetlestirmeKonvulasyon);
+            this.groupBox3.Controls.Add(this.radioBtnNetlestirmeKenar);
+            this.groupBox3.Location = new System.Drawing.Point(5, 6);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(283, 90);
+            this.groupBox3.TabIndex = 17;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Netleştirme Algoritmaları";
+            // 
+            // radioBtnNetlestirmeKonvulasyon
+            // 
+            this.radioBtnNetlestirmeKonvulasyon.AutoSize = true;
+            this.radioBtnNetlestirmeKonvulasyon.Location = new System.Drawing.Point(6, 43);
+            this.radioBtnNetlestirmeKonvulasyon.Name = "radioBtnNetlestirmeKonvulasyon";
+            this.radioBtnNetlestirmeKonvulasyon.Size = new System.Drawing.Size(155, 17);
+            this.radioBtnNetlestirmeKonvulasyon.TabIndex = 1;
+            this.radioBtnNetlestirmeKonvulasyon.Text = "Konvulasyon İle Netleştirme";
+            this.radioBtnNetlestirmeKonvulasyon.UseVisualStyleBackColor = true;
+            // 
+            // radioBtnNetlestirmeKenar
+            // 
+            this.radioBtnNetlestirmeKenar.AutoSize = true;
+            this.radioBtnNetlestirmeKenar.Checked = true;
+            this.radioBtnNetlestirmeKenar.Location = new System.Drawing.Point(6, 19);
+            this.radioBtnNetlestirmeKenar.Name = "radioBtnNetlestirmeKenar";
+            this.radioBtnNetlestirmeKenar.Size = new System.Drawing.Size(158, 17);
+            this.radioBtnNetlestirmeKenar.TabIndex = 0;
+            this.radioBtnNetlestirmeKenar.TabStop = true;
+            this.radioBtnNetlestirmeKenar.Text = "Kenar Görüntüsü Kullanarak";
+            this.radioBtnNetlestirmeKenar.UseVisualStyleBackColor = true;
+            // 
+            // tabKenarBulma
+            // 
+            this.tabKenarBulma.Controls.Add(this.labelKenarBulmaOlcek);
+            this.tabKenarBulma.Controls.Add(this.trackBarKenarBulmaOlcek);
+            this.tabKenarBulma.Controls.Add(this.labelKenarBulmaOlcekText);
+            this.tabKenarBulma.Controls.Add(this.labelKenarBulmaEsik);
+            this.tabKenarBulma.Controls.Add(this.trackBarKenarBulmaEsik);
+            this.tabKenarBulma.Controls.Add(this.label10);
+            this.tabKenarBulma.Controls.Add(this.btnKenarBulmaGeriAl);
+            this.tabKenarBulma.Controls.Add(this.btnKenarBulmaUygula);
+            this.tabKenarBulma.Controls.Add(this.groupBox4);
+            this.tabKenarBulma.Location = new System.Drawing.Point(4, 4);
+            this.tabKenarBulma.Name = "tabKenarBulma";
+            this.tabKenarBulma.Padding = new System.Windows.Forms.Padding(3);
+            this.tabKenarBulma.Size = new System.Drawing.Size(825, 102);
+            this.tabKenarBulma.TabIndex = 6;
+            this.tabKenarBulma.Text = "Kenar Bulma";
+            this.tabKenarBulma.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(789, 76);
+            this.tabPage2.Size = new System.Drawing.Size(825, 102);
             this.tabPage2.TabIndex = 7;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -819,9 +1158,9 @@ namespace GoruntuIsleme_PhotoshopClone
             this.toolStripYeni,
             this.toolStripAc,
             this.toolStripKaydet});
-            this.toolStrip2.Location = new System.Drawing.Point(58, 0);
+            this.toolStrip2.Location = new System.Drawing.Point(62, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(1026, 25);
+            this.toolStrip2.Size = new System.Drawing.Size(1022, 25);
             this.toolStrip2.TabIndex = 5;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -855,219 +1194,150 @@ namespace GoruntuIsleme_PhotoshopClone
             this.toolStripKaydet.Text = "Resmi Kaydet";
             this.toolStripKaydet.Click += new System.EventHandler(this.toolStripKaydet_Click);
             // 
-            // labelEsik2
+            // labelKenarBulmaEsik
             // 
-            this.labelEsik2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelEsik2.AutoSize = true;
-            this.labelEsik2.Location = new System.Drawing.Point(504, 24);
-            this.labelEsik2.Name = "labelEsik2";
-            this.labelEsik2.Size = new System.Drawing.Size(25, 13);
-            this.labelEsik2.TabIndex = 15;
-            this.labelEsik2.Text = "255";
-            this.labelEsik2.Visible = false;
+            this.labelKenarBulmaEsik.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelKenarBulmaEsik.AutoSize = true;
+            this.labelKenarBulmaEsik.Location = new System.Drawing.Point(309, 24);
+            this.labelKenarBulmaEsik.Name = "labelKenarBulmaEsik";
+            this.labelKenarBulmaEsik.Size = new System.Drawing.Size(13, 13);
+            this.labelKenarBulmaEsik.TabIndex = 28;
+            this.labelKenarBulmaEsik.Text = "0";
             // 
-            // trackBarEsik2
+            // trackBarKenarBulmaEsik
             // 
-            this.trackBarEsik2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.trackBarEsik2.LargeChange = 3;
-            this.trackBarEsik2.Location = new System.Drawing.Point(355, 40);
-            this.trackBarEsik2.Maximum = 255;
-            this.trackBarEsik2.Name = "trackBarEsik2";
-            this.trackBarEsik2.Size = new System.Drawing.Size(174, 45);
-            this.trackBarEsik2.TabIndex = 11;
-            this.trackBarEsik2.Value = 255;
-            this.trackBarEsik2.Visible = false;
-            this.trackBarEsik2.Scroll += new System.EventHandler(this.trackBarEsik2_Scroll);
+            this.trackBarKenarBulmaEsik.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.trackBarKenarBulmaEsik.LargeChange = 1;
+            this.trackBarKenarBulmaEsik.Location = new System.Drawing.Point(160, 40);
+            this.trackBarKenarBulmaEsik.Maximum = 255;
+            this.trackBarKenarBulmaEsik.Name = "trackBarKenarBulmaEsik";
+            this.trackBarKenarBulmaEsik.Size = new System.Drawing.Size(174, 45);
+            this.trackBarKenarBulmaEsik.TabIndex = 27;
+            this.trackBarKenarBulmaEsik.Scroll += new System.EventHandler(this.trackBarKenarBulmaEsik_Scroll);
             // 
-            // labelEsik2Text
+            // label10
             // 
-            this.labelEsik2Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelEsik2Text.AutoSize = true;
-            this.labelEsik2Text.Location = new System.Drawing.Point(355, 24);
-            this.labelEsik2Text.Name = "labelEsik2Text";
-            this.labelEsik2Text.Size = new System.Drawing.Size(46, 13);
-            this.labelEsik2Text.TabIndex = 14;
-            this.labelEsik2Text.Text = "Üst Eşik";
-            this.labelEsik2Text.Visible = false;
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(160, 24);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(83, 13);
+            this.label10.TabIndex = 26;
+            this.label10.Text = "Eşikleme Değeri";
             // 
-            // labelEsik1
+            // btnKenarBulmaGeriAl
             // 
-            this.labelEsik1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelEsik1.AutoSize = true;
-            this.labelEsik1.Location = new System.Drawing.Point(315, 24);
-            this.labelEsik1.Name = "labelEsik1";
-            this.labelEsik1.Size = new System.Drawing.Size(13, 13);
-            this.labelEsik1.TabIndex = 13;
-            this.labelEsik1.Text = "0";
+            this.btnKenarBulmaGeriAl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnKenarBulmaGeriAl.Enabled = false;
+            this.btnKenarBulmaGeriAl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnKenarBulmaGeriAl.Location = new System.Drawing.Point(729, 24);
+            this.btnKenarBulmaGeriAl.Name = "btnKenarBulmaGeriAl";
+            this.btnKenarBulmaGeriAl.Size = new System.Drawing.Size(90, 62);
+            this.btnKenarBulmaGeriAl.TabIndex = 25;
+            this.btnKenarBulmaGeriAl.Text = "Geri Al";
+            this.btnKenarBulmaGeriAl.UseVisualStyleBackColor = true;
+            this.btnKenarBulmaGeriAl.Click += new System.EventHandler(this.btnKenarBulmaGeriAl_Click);
             // 
-            // trackBarEsik1
+            // btnKenarBulmaUygula
             // 
-            this.trackBarEsik1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.trackBarEsik1.LargeChange = 3;
-            this.trackBarEsik1.Location = new System.Drawing.Point(166, 40);
-            this.trackBarEsik1.Maximum = 255;
-            this.trackBarEsik1.Name = "trackBarEsik1";
-            this.trackBarEsik1.Size = new System.Drawing.Size(174, 45);
-            this.trackBarEsik1.TabIndex = 12;
-            this.trackBarEsik1.Scroll += new System.EventHandler(this.trackBarEsik1_Scroll);
+            this.btnKenarBulmaUygula.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnKenarBulmaUygula.Enabled = false;
+            this.btnKenarBulmaUygula.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnKenarBulmaUygula.Location = new System.Drawing.Point(633, 24);
+            this.btnKenarBulmaUygula.Name = "btnKenarBulmaUygula";
+            this.btnKenarBulmaUygula.Size = new System.Drawing.Size(90, 62);
+            this.btnKenarBulmaUygula.TabIndex = 24;
+            this.btnKenarBulmaUygula.Text = "Uygula";
+            this.btnKenarBulmaUygula.UseVisualStyleBackColor = true;
+            this.btnKenarBulmaUygula.Click += new System.EventHandler(this.btnKenarBulmaUygula_Click);
             // 
-            // labelEsik1Text
+            // groupBox4
             // 
-            this.labelEsik1Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelEsik1Text.AutoSize = true;
-            this.labelEsik1Text.Location = new System.Drawing.Point(166, 24);
-            this.labelEsik1Text.Name = "labelEsik1Text";
-            this.labelEsik1Text.Size = new System.Drawing.Size(27, 13);
-            this.labelEsik1Text.TabIndex = 10;
-            this.labelEsik1Text.Text = "Eşik";
+            this.groupBox4.Controls.Add(this.radioBtnKenarBulmaFarkAlarak);
+            this.groupBox4.Controls.Add(this.radioBtnKenarBulmaCompass);
+            this.groupBox4.Controls.Add(this.radioBtnKenarBulmaSobel);
+            this.groupBox4.Location = new System.Drawing.Point(5, 6);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(146, 90);
+            this.groupBox4.TabIndex = 23;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Kenar Bulma Algoritmaları";
             // 
-            // btnEsikGeriAl
+            // radioBtnKenarBulmaCompass
             // 
-            this.btnEsikGeriAl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEsikGeriAl.Enabled = false;
-            this.btnEsikGeriAl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnEsikGeriAl.Location = new System.Drawing.Point(637, 21);
-            this.btnEsikGeriAl.Name = "btnEsikGeriAl";
-            this.btnEsikGeriAl.Size = new System.Drawing.Size(90, 62);
-            this.btnEsikGeriAl.TabIndex = 17;
-            this.btnEsikGeriAl.Text = "Geri Al";
-            this.btnEsikGeriAl.UseVisualStyleBackColor = true;
-            this.btnEsikGeriAl.Click += new System.EventHandler(this.btnEsikGeriAl_Click);
+            this.radioBtnKenarBulmaCompass.AutoSize = true;
+            this.radioBtnKenarBulmaCompass.Location = new System.Drawing.Point(6, 43);
+            this.radioBtnKenarBulmaCompass.Name = "radioBtnKenarBulmaCompass";
+            this.radioBtnKenarBulmaCompass.Size = new System.Drawing.Size(121, 17);
+            this.radioBtnKenarBulmaCompass.TabIndex = 1;
+            this.radioBtnKenarBulmaCompass.Text = "Compass Algoritması";
+            this.radioBtnKenarBulmaCompass.UseVisualStyleBackColor = true;
+            this.radioBtnKenarBulmaCompass.CheckedChanged += new System.EventHandler(this.radioBtnKenarBulmaCompass_CheckedChanged);
             // 
-            // btnEsikUygula
+            // radioBtnKenarBulmaSobel
             // 
-            this.btnEsikUygula.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEsikUygula.Enabled = false;
-            this.btnEsikUygula.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnEsikUygula.Location = new System.Drawing.Point(541, 21);
-            this.btnEsikUygula.Name = "btnEsikUygula";
-            this.btnEsikUygula.Size = new System.Drawing.Size(90, 62);
-            this.btnEsikUygula.TabIndex = 16;
-            this.btnEsikUygula.Text = "Uygula";
-            this.btnEsikUygula.UseVisualStyleBackColor = true;
-            this.btnEsikUygula.Click += new System.EventHandler(this.btnEsikUygula_Click);
+            this.radioBtnKenarBulmaSobel.AutoSize = true;
+            this.radioBtnKenarBulmaSobel.Checked = true;
+            this.radioBtnKenarBulmaSobel.Location = new System.Drawing.Point(6, 19);
+            this.radioBtnKenarBulmaSobel.Name = "radioBtnKenarBulmaSobel";
+            this.radioBtnKenarBulmaSobel.Size = new System.Drawing.Size(105, 17);
+            this.radioBtnKenarBulmaSobel.TabIndex = 0;
+            this.radioBtnKenarBulmaSobel.TabStop = true;
+            this.radioBtnKenarBulmaSobel.Text = "Sobel Algoritması";
+            this.radioBtnKenarBulmaSobel.UseVisualStyleBackColor = true;
+            this.radioBtnKenarBulmaSobel.CheckedChanged += new System.EventHandler(this.radioBtnKenarBulmaSobel_CheckedChanged);
             // 
-            // btnHistogramGoster
+            // radioBtnKenarBulmaFarkAlarak
             // 
-            this.btnHistogramGoster.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnHistogramGoster.Enabled = false;
-            this.btnHistogramGoster.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnHistogramGoster.Location = new System.Drawing.Point(733, 21);
-            this.btnHistogramGoster.Name = "btnHistogramGoster";
-            this.btnHistogramGoster.Size = new System.Drawing.Size(90, 62);
-            this.btnHistogramGoster.TabIndex = 18;
-            this.btnHistogramGoster.Text = "Histogram Göster";
-            this.btnHistogramGoster.UseVisualStyleBackColor = true;
-            this.btnHistogramGoster.Click += new System.EventHandler(this.btnHistogramGoster_Click);
+            this.radioBtnKenarBulmaFarkAlarak.AutoSize = true;
+            this.radioBtnKenarBulmaFarkAlarak.Location = new System.Drawing.Point(6, 66);
+            this.radioBtnKenarBulmaFarkAlarak.Name = "radioBtnKenarBulmaFarkAlarak";
+            this.radioBtnKenarBulmaFarkAlarak.Size = new System.Drawing.Size(79, 17);
+            this.radioBtnKenarBulmaFarkAlarak.TabIndex = 2;
+            this.radioBtnKenarBulmaFarkAlarak.Text = "Fark Alarak";
+            this.radioBtnKenarBulmaFarkAlarak.UseVisualStyleBackColor = true;
+            this.radioBtnKenarBulmaFarkAlarak.CheckedChanged += new System.EventHandler(this.radioBtnKenarBulmaFarkAlarak_CheckedChanged);
             // 
-            // groupBox2
+            // labelKenarBulmaOlcek
             // 
-            this.groupBox2.Controls.Add(this.radioBtnGauss);
-            this.groupBox2.Controls.Add(this.radioBtnMedian);
-            this.groupBox2.Controls.Add(this.radioBtnMean);
-            this.groupBox2.Location = new System.Drawing.Point(6, 6);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(283, 90);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Bulanıklaştırma Algoritmaları";
+            this.labelKenarBulmaOlcek.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelKenarBulmaOlcek.AutoSize = true;
+            this.labelKenarBulmaOlcek.Location = new System.Drawing.Point(489, 24);
+            this.labelKenarBulmaOlcek.Name = "labelKenarBulmaOlcek";
+            this.labelKenarBulmaOlcek.Size = new System.Drawing.Size(13, 13);
+            this.labelKenarBulmaOlcek.TabIndex = 31;
+            this.labelKenarBulmaOlcek.Text = "2";
+            this.labelKenarBulmaOlcek.Visible = false;
             // 
-            // radioBtnMedian
+            // trackBarKenarBulmaOlcek
             // 
-            this.radioBtnMedian.AutoSize = true;
-            this.radioBtnMedian.Location = new System.Drawing.Point(6, 43);
-            this.radioBtnMedian.Name = "radioBtnMedian";
-            this.radioBtnMedian.Size = new System.Drawing.Size(113, 17);
-            this.radioBtnMedian.TabIndex = 1;
-            this.radioBtnMedian.Text = "Median Algoritması";
-            this.radioBtnMedian.UseVisualStyleBackColor = true;
+            this.trackBarKenarBulmaOlcek.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.trackBarKenarBulmaOlcek.LargeChange = 1;
+            this.trackBarKenarBulmaOlcek.Location = new System.Drawing.Point(340, 40);
+            this.trackBarKenarBulmaOlcek.Minimum = 2;
+            this.trackBarKenarBulmaOlcek.Name = "trackBarKenarBulmaOlcek";
+            this.trackBarKenarBulmaOlcek.Size = new System.Drawing.Size(174, 45);
+            this.trackBarKenarBulmaOlcek.TabIndex = 30;
+            this.trackBarKenarBulmaOlcek.Value = 2;
+            this.trackBarKenarBulmaOlcek.Visible = false;
+            this.trackBarKenarBulmaOlcek.Scroll += new System.EventHandler(this.trackBarKenarBulmaOlcek_Scroll);
             // 
-            // radioBtnMean
+            // labelKenarBulmaOlcekText
             // 
-            this.radioBtnMean.AutoSize = true;
-            this.radioBtnMean.Checked = true;
-            this.radioBtnMean.Location = new System.Drawing.Point(6, 19);
-            this.radioBtnMean.Name = "radioBtnMean";
-            this.radioBtnMean.Size = new System.Drawing.Size(105, 17);
-            this.radioBtnMean.TabIndex = 0;
-            this.radioBtnMean.TabStop = true;
-            this.radioBtnMean.Text = "Mean Algoritması";
-            this.radioBtnMean.UseVisualStyleBackColor = true;
-            // 
-            // radioBtnGauss
-            // 
-            this.radioBtnGauss.AutoSize = true;
-            this.radioBtnGauss.Location = new System.Drawing.Point(6, 66);
-            this.radioBtnGauss.Name = "radioBtnGauss";
-            this.radioBtnGauss.Size = new System.Drawing.Size(122, 17);
-            this.radioBtnGauss.TabIndex = 2;
-            this.radioBtnGauss.Text = "Gaussian Algoritması";
-            this.radioBtnGauss.UseVisualStyleBackColor = true;
-            // 
-            // btnBulaniklastirmaGeriAl
-            // 
-            this.btnBulaniklastirmaGeriAl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBulaniklastirmaGeriAl.Enabled = false;
-            this.btnBulaniklastirmaGeriAl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnBulaniklastirmaGeriAl.Location = new System.Drawing.Point(734, 24);
-            this.btnBulaniklastirmaGeriAl.Name = "btnBulaniklastirmaGeriAl";
-            this.btnBulaniklastirmaGeriAl.Size = new System.Drawing.Size(90, 62);
-            this.btnBulaniklastirmaGeriAl.TabIndex = 13;
-            this.btnBulaniklastirmaGeriAl.Text = "Geri Al";
-            this.btnBulaniklastirmaGeriAl.UseVisualStyleBackColor = true;
-            this.btnBulaniklastirmaGeriAl.Click += new System.EventHandler(this.btnBulaniklastirmaGeriAl_Click);
-            // 
-            // btnBulaniklastirmaUygula
-            // 
-            this.btnBulaniklastirmaUygula.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBulaniklastirmaUygula.Enabled = false;
-            this.btnBulaniklastirmaUygula.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnBulaniklastirmaUygula.Location = new System.Drawing.Point(638, 24);
-            this.btnBulaniklastirmaUygula.Name = "btnBulaniklastirmaUygula";
-            this.btnBulaniklastirmaUygula.Size = new System.Drawing.Size(90, 62);
-            this.btnBulaniklastirmaUygula.TabIndex = 12;
-            this.btnBulaniklastirmaUygula.Text = "Uygula";
-            this.btnBulaniklastirmaUygula.UseVisualStyleBackColor = true;
-            this.btnBulaniklastirmaUygula.Click += new System.EventHandler(this.btnBulaniklastirmaUygula_Click);
-            // 
-            // labelBulaniklastirma
-            // 
-            this.labelBulaniklastirma.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelBulaniklastirma.AutoSize = true;
-            this.labelBulaniklastirma.Location = new System.Drawing.Point(476, 21);
-            this.labelBulaniklastirma.Name = "labelBulaniklastirma";
-            this.labelBulaniklastirma.Size = new System.Drawing.Size(13, 13);
-            this.labelBulaniklastirma.TabIndex = 16;
-            this.labelBulaniklastirma.Text = "3";
-            // 
-            // trackBarBulaniklastirmaKatsayi
-            // 
-            this.trackBarBulaniklastirmaKatsayi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.trackBarBulaniklastirmaKatsayi.LargeChange = 1;
-            this.trackBarBulaniklastirmaKatsayi.Location = new System.Drawing.Point(327, 37);
-            this.trackBarBulaniklastirmaKatsayi.Maximum = 3;
-            this.trackBarBulaniklastirmaKatsayi.Minimum = 1;
-            this.trackBarBulaniklastirmaKatsayi.Name = "trackBarBulaniklastirmaKatsayi";
-            this.trackBarBulaniklastirmaKatsayi.Size = new System.Drawing.Size(174, 45);
-            this.trackBarBulaniklastirmaKatsayi.TabIndex = 15;
-            this.trackBarBulaniklastirmaKatsayi.Value = 1;
-            this.trackBarBulaniklastirmaKatsayi.Scroll += new System.EventHandler(this.trackBarBulaniklastirmaKatsayi_Scroll);
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(327, 21);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(121, 13);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "Bulanıklaştırma Katsayısı";
+            this.labelKenarBulmaOlcekText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelKenarBulmaOlcekText.AutoSize = true;
+            this.labelKenarBulmaOlcekText.Location = new System.Drawing.Point(340, 24);
+            this.labelKenarBulmaOlcekText.Name = "labelKenarBulmaOlcekText";
+            this.labelKenarBulmaOlcekText.Size = new System.Drawing.Size(35, 13);
+            this.labelKenarBulmaOlcekText.TabIndex = 29;
+            this.labelKenarBulmaOlcekText.Text = "Ölçek";
+            this.labelKenarBulmaOlcekText.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1084, 561);
+            this.ClientSize = new System.Drawing.Size(1084, 596);
             this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.splitContainer1);
@@ -1075,7 +1345,7 @@ namespace GoruntuIsleme_PhotoshopClone
             this.Controls.Add(this.toolStrip1);
             this.MinimumSize = new System.Drawing.Size(1100, 600);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Fotoğraf Düzenleyici";
             ((System.ComponentModel.ISupportInitialize)(this.trackBarZoom)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -1092,6 +1362,8 @@ namespace GoruntuIsleme_PhotoshopClone
             ((System.ComponentModel.ISupportInitialize)(this.trackBarParlaklik)).EndInit();
             this.tabEsikleme.ResumeLayout(false);
             this.tabEsikleme.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarEsik2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarEsik1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabRenkler.ResumeLayout(false);
@@ -1101,13 +1373,22 @@ namespace GoruntuIsleme_PhotoshopClone
             ((System.ComponentModel.ISupportInitialize)(this.trackBarR)).EndInit();
             this.tabBulaniklastirma.ResumeLayout(false);
             this.tabBulaniklastirma.PerformLayout();
-            this.toolStrip2.ResumeLayout(false);
-            this.toolStrip2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarEsik2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarEsik1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarBulaniklastirmaKatsayi)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarBulaniklastirmaKatsayi)).EndInit();
+            this.tabNetlestirme.ResumeLayout(false);
+            this.tabNetlestirme.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarNetlestirme)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.tabKenarBulma.ResumeLayout(false);
+            this.tabKenarBulma.PerformLayout();
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarKenarBulmaEsik)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarKenarBulmaOlcek)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1133,9 +1414,9 @@ namespace GoruntuIsleme_PhotoshopClone
         private System.Windows.Forms.ToolStripButton toolStripB;
         private System.Windows.Forms.ToolStripButton toolStripG;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripButton printToolStripButton;
+        private System.Windows.Forms.ToolStripButton toolStripNetlestirme;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
-        private System.Windows.Forms.ToolStripButton cutToolStripButton;
+        private System.Windows.Forms.ToolStripButton toolStripKenarBulma;
         private System.Windows.Forms.ToolStripButton copyToolStripButton;
         private System.Windows.Forms.ToolStripButton pasteToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
@@ -1162,9 +1443,8 @@ namespace GoruntuIsleme_PhotoshopClone
         private System.Windows.Forms.TabPage tabEsikleme;
         private System.Windows.Forms.TabPage tabRenkler;
         private System.Windows.Forms.TabPage tabBulaniklastirma;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.TabPage tabNetlestirme;
+        private System.Windows.Forms.TabPage tabKenarBulma;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label labelB;
         private System.Windows.Forms.TrackBar trackBarB;
@@ -1196,6 +1476,26 @@ namespace GoruntuIsleme_PhotoshopClone
         private System.Windows.Forms.RadioButton radioBtnGauss;
         private System.Windows.Forms.RadioButton radioBtnMedian;
         private System.Windows.Forms.RadioButton radioBtnMean;
+        private System.Windows.Forms.Label labelNetlestirme;
+        private System.Windows.Forms.TrackBar trackBarNetlestirme;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnNetlestirmeGeriAl;
+        private System.Windows.Forms.Button btnNetlestirmeUygula;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.RadioButton radioBtnNetlestirmeKonvulasyon;
+        private System.Windows.Forms.RadioButton radioBtnNetlestirmeKenar;
+        private System.Windows.Forms.Label labelKenarBulmaEsik;
+        private System.Windows.Forms.TrackBar trackBarKenarBulmaEsik;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button btnKenarBulmaGeriAl;
+        private System.Windows.Forms.Button btnKenarBulmaUygula;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.RadioButton radioBtnKenarBulmaCompass;
+        private System.Windows.Forms.RadioButton radioBtnKenarBulmaSobel;
+        private System.Windows.Forms.RadioButton radioBtnKenarBulmaFarkAlarak;
+        private System.Windows.Forms.Label labelKenarBulmaOlcek;
+        private System.Windows.Forms.TrackBar trackBarKenarBulmaOlcek;
+        private System.Windows.Forms.Label labelKenarBulmaOlcekText;
     }
 }
 
