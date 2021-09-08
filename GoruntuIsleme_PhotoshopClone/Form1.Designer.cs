@@ -40,13 +40,14 @@ namespace GoruntuIsleme_PhotoshopClone
             this.toolStripParlaklik = new System.Windows.Forms.ToolStripButton();
             this.toolStripKontrast = new System.Windows.Forms.ToolStripButton();
             this.toolStripEsikleme = new System.Windows.Forms.ToolStripButton();
+            this.toolStripNegatif = new System.Windows.Forms.ToolStripButton();
+            this.toolStripGri = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripR = new System.Windows.Forms.ToolStripButton();
+            this.toolStripG = new System.Windows.Forms.ToolStripButton();
+            this.toolStripB = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.printToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -54,9 +55,25 @@ namespace GoruntuIsleme_PhotoshopClone
             this.copyToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.pasteToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.tabParlaklikKontrast = new System.Windows.Forms.TabPage();
+            this.btnParlaklikGeriAl = new System.Windows.Forms.Button();
+            this.btnParlaklikUygula = new System.Windows.Forms.Button();
+            this.labelKontrast = new System.Windows.Forms.Label();
+            this.trackBarKontrast = new System.Windows.Forms.TrackBar();
+            this.label4 = new System.Windows.Forms.Label();
+            this.labelParlaklik = new System.Windows.Forms.Label();
+            this.trackBarParlaklik = new System.Windows.Forms.TrackBar();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tabEsikleme = new System.Windows.Forms.TabPage();
+            this.tabRenkler = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.labelZoom = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.labelTitle = new System.Windows.Forms.Label();
@@ -64,23 +81,15 @@ namespace GoruntuIsleme_PhotoshopClone
             this.toolStripYeni = new System.Windows.Forms.ToolStripButton();
             this.toolStripAc = new System.Windows.Forms.ToolStripButton();
             this.toolStripKaydet = new System.Windows.Forms.ToolStripButton();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabRenkler = new System.Windows.Forms.TabPage();
-            this.tabEsikleme = new System.Windows.Forms.TabPage();
-            this.tabParlaklikKontrast = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
-            this.trackBarParlaklik = new System.Windows.Forms.TrackBar();
-            this.labelParlaklik = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.trackBarKontrast = new System.Windows.Forms.TrackBar();
-            this.labelKontrast = new System.Windows.Forms.Label();
-            this.btnParlaklikUygula = new System.Windows.Forms.Button();
-            this.btnParlaklikGeriAl = new System.Windows.Forms.Button();
-            this.tabControl = new System.Windows.Forms.TabControl();
+            this.labelG = new System.Windows.Forms.Label();
+            this.trackBarG = new System.Windows.Forms.TrackBar();
+            this.label5 = new System.Windows.Forms.Label();
+            this.labelR = new System.Windows.Forms.Label();
+            this.trackBarR = new System.Windows.Forms.TrackBar();
+            this.label7 = new System.Windows.Forms.Label();
+            this.labelB = new System.Windows.Forms.Label();
+            this.trackBarB = new System.Windows.Forms.TrackBar();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -88,11 +97,15 @@ namespace GoruntuIsleme_PhotoshopClone
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.toolStrip2.SuspendLayout();
-            this.tabParlaklikKontrast.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarParlaklik)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarKontrast)).BeginInit();
             this.tabControl.SuspendLayout();
+            this.tabParlaklikKontrast.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarKontrast)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarParlaklik)).BeginInit();
+            this.tabRenkler.SuspendLayout();
+            this.toolStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarR)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarB)).BeginInit();
             this.SuspendLayout();
             // 
             // BottomToolStripPanel
@@ -155,21 +168,21 @@ namespace GoruntuIsleme_PhotoshopClone
             this.toolStripParlaklik,
             this.toolStripKontrast,
             this.toolStripEsikleme,
+            this.toolStripNegatif,
+            this.toolStripGri,
             this.toolStripSeparator2,
             this.toolStripLabel2,
-            this.toolStripButton6,
-            this.toolStripButton8,
-            this.toolStripButton7,
+            this.toolStripR,
+            this.toolStripG,
+            this.toolStripB,
             this.toolStripSeparator4,
-            this.toolStripButton4,
             this.toolStripButton5,
             this.printToolStripButton,
             this.toolStripSeparator,
             this.cutToolStripButton,
             this.copyToolStripButton,
             this.pasteToolStripButton,
-            this.toolStripSeparator3,
-            this.toolStripButton9});
+            this.toolStripSeparator3});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -178,6 +191,7 @@ namespace GoruntuIsleme_PhotoshopClone
             // 
             // toolStripParlaklik
             // 
+            this.toolStripParlaklik.Enabled = false;
             this.toolStripParlaklik.Image = ((System.Drawing.Image)(resources.GetObject("toolStripParlaklik.Image")));
             this.toolStripParlaklik.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripParlaklik.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -189,6 +203,7 @@ namespace GoruntuIsleme_PhotoshopClone
             // 
             // toolStripKontrast
             // 
+            this.toolStripKontrast.Enabled = false;
             this.toolStripKontrast.Image = ((System.Drawing.Image)(resources.GetObject("toolStripKontrast.Image")));
             this.toolStripKontrast.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripKontrast.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -200,6 +215,7 @@ namespace GoruntuIsleme_PhotoshopClone
             // 
             // toolStripEsikleme
             // 
+            this.toolStripEsikleme.Enabled = false;
             this.toolStripEsikleme.Image = ((System.Drawing.Image)(resources.GetObject("toolStripEsikleme.Image")));
             this.toolStripEsikleme.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripEsikleme.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -208,6 +224,32 @@ namespace GoruntuIsleme_PhotoshopClone
             this.toolStripEsikleme.Text = "Eşikleme";
             this.toolStripEsikleme.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripEsikleme.Click += new System.EventHandler(this.toolStripEsikleme_Click);
+            // 
+            // toolStripNegatif
+            // 
+            this.toolStripNegatif.CheckOnClick = true;
+            this.toolStripNegatif.Enabled = false;
+            this.toolStripNegatif.Image = ((System.Drawing.Image)(resources.GetObject("toolStripNegatif.Image")));
+            this.toolStripNegatif.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripNegatif.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripNegatif.Name = "toolStripNegatif";
+            this.toolStripNegatif.Size = new System.Drawing.Size(55, 49);
+            this.toolStripNegatif.Text = "Negatif";
+            this.toolStripNegatif.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripNegatif.Click += new System.EventHandler(this.toolStripNegatif_Click);
+            // 
+            // toolStripGri
+            // 
+            this.toolStripGri.CheckOnClick = true;
+            this.toolStripGri.Enabled = false;
+            this.toolStripGri.Image = ((System.Drawing.Image)(resources.GetObject("toolStripGri.Image")));
+            this.toolStripGri.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripGri.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripGri.Name = "toolStripGri";
+            this.toolStripGri.Size = new System.Drawing.Size(55, 49);
+            this.toolStripGri.Text = "Gri";
+            this.toolStripGri.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripGri.Click += new System.EventHandler(this.toolStripGri_Click);
             // 
             // toolStripSeparator2
             // 
@@ -220,53 +262,55 @@ namespace GoruntuIsleme_PhotoshopClone
             this.toolStripLabel2.Size = new System.Drawing.Size(55, 15);
             this.toolStripLabel2.Text = "Renkler";
             // 
-            // toolStripButton6
+            // toolStripR
             // 
-            this.toolStripButton6.CheckOnClick = true;
-            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
-            this.toolStripButton6.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(55, 34);
-            this.toolStripButton6.Text = "toolStripButton6";
+            this.toolStripR.Checked = true;
+            this.toolStripR.CheckOnClick = true;
+            this.toolStripR.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.toolStripR.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripR.Enabled = false;
+            this.toolStripR.Image = ((System.Drawing.Image)(resources.GetObject("toolStripR.Image")));
+            this.toolStripR.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripR.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripR.Name = "toolStripR";
+            this.toolStripR.Size = new System.Drawing.Size(55, 34);
+            this.toolStripR.Text = "Kırmızı";
+            this.toolStripR.Click += new System.EventHandler(this.toolStripR_Click);
             // 
-            // toolStripButton8
+            // toolStripG
             // 
-            this.toolStripButton8.CheckOnClick = true;
-            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
-            this.toolStripButton8.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.Size = new System.Drawing.Size(55, 34);
-            this.toolStripButton8.Text = "toolStripButton8";
+            this.toolStripG.Checked = true;
+            this.toolStripG.CheckOnClick = true;
+            this.toolStripG.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.toolStripG.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripG.Enabled = false;
+            this.toolStripG.Image = ((System.Drawing.Image)(resources.GetObject("toolStripG.Image")));
+            this.toolStripG.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripG.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripG.Name = "toolStripG";
+            this.toolStripG.Size = new System.Drawing.Size(55, 34);
+            this.toolStripG.Text = "Yeşil";
+            this.toolStripG.Click += new System.EventHandler(this.toolStripG_Click);
             // 
-            // toolStripButton7
+            // toolStripB
             // 
-            this.toolStripButton7.CheckOnClick = true;
-            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
-            this.toolStripButton7.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Size = new System.Drawing.Size(55, 34);
-            this.toolStripButton7.Text = "toolStripButton7";
+            this.toolStripB.Checked = true;
+            this.toolStripB.CheckOnClick = true;
+            this.toolStripB.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.toolStripB.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripB.Enabled = false;
+            this.toolStripB.Image = ((System.Drawing.Image)(resources.GetObject("toolStripB.Image")));
+            this.toolStripB.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripB.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripB.Name = "toolStripB";
+            this.toolStripB.Size = new System.Drawing.Size(55, 34);
+            this.toolStripB.Text = "Mavi";
+            this.toolStripB.Click += new System.EventHandler(this.toolStripB_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(55, 6);
-            // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.CheckOnClick = true;
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(55, 20);
-            this.toolStripButton4.Text = "toolStripButton4";
             // 
             // toolStripButton5
             // 
@@ -328,20 +372,9 @@ namespace GoruntuIsleme_PhotoshopClone
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(55, 6);
             // 
-            // toolStripButton9
-            // 
-            this.toolStripButton9.CheckOnClick = true;
-            this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton9.Image")));
-            this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton9.Name = "toolStripButton9";
-            this.toolStripButton9.Size = new System.Drawing.Size(55, 20);
-            this.toolStripButton9.Text = "toolStripButton9";
-            // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlDark;
             this.pictureBox1.Location = new System.Drawing.Point(62, 65);
             this.pictureBox1.Name = "pictureBox1";
@@ -369,6 +402,204 @@ namespace GoruntuIsleme_PhotoshopClone
             this.splitContainer1.Size = new System.Drawing.Size(776, 96);
             this.splitContainer1.SplitterDistance = 587;
             this.splitContainer1.TabIndex = 3;
+            // 
+            // tabControl
+            // 
+            this.tabControl.Alignment = System.Windows.Forms.TabAlignment.Bottom;
+            this.tabControl.Controls.Add(this.tabParlaklikKontrast);
+            this.tabControl.Controls.Add(this.tabEsikleme);
+            this.tabControl.Controls.Add(this.tabRenkler);
+            this.tabControl.Controls.Add(this.tabPage4);
+            this.tabControl.Controls.Add(this.tabPage1);
+            this.tabControl.Controls.Add(this.tabPage5);
+            this.tabControl.Controls.Add(this.tabPage6);
+            this.tabControl.Controls.Add(this.tabPage2);
+            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl.Location = new System.Drawing.Point(0, 0);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(587, 96);
+            this.tabControl.TabIndex = 2;
+            // 
+            // tabParlaklikKontrast
+            // 
+            this.tabParlaklikKontrast.Controls.Add(this.btnParlaklikGeriAl);
+            this.tabParlaklikKontrast.Controls.Add(this.btnParlaklikUygula);
+            this.tabParlaklikKontrast.Controls.Add(this.labelKontrast);
+            this.tabParlaklikKontrast.Controls.Add(this.trackBarKontrast);
+            this.tabParlaklikKontrast.Controls.Add(this.label4);
+            this.tabParlaklikKontrast.Controls.Add(this.labelParlaklik);
+            this.tabParlaklikKontrast.Controls.Add(this.trackBarParlaklik);
+            this.tabParlaklikKontrast.Controls.Add(this.label2);
+            this.tabParlaklikKontrast.Location = new System.Drawing.Point(4, 4);
+            this.tabParlaklikKontrast.Name = "tabParlaklikKontrast";
+            this.tabParlaklikKontrast.Padding = new System.Windows.Forms.Padding(3);
+            this.tabParlaklikKontrast.Size = new System.Drawing.Size(579, 70);
+            this.tabParlaklikKontrast.TabIndex = 0;
+            this.tabParlaklikKontrast.Text = "Parlaklik ve Kontrast";
+            this.tabParlaklikKontrast.UseVisualStyleBackColor = true;
+            // 
+            // btnParlaklikGeriAl
+            // 
+            this.btnParlaklikGeriAl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnParlaklikGeriAl.Enabled = false;
+            this.btnParlaklikGeriAl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnParlaklikGeriAl.Location = new System.Drawing.Point(481, 6);
+            this.btnParlaklikGeriAl.Name = "btnParlaklikGeriAl";
+            this.btnParlaklikGeriAl.Size = new System.Drawing.Size(90, 62);
+            this.btnParlaklikGeriAl.TabIndex = 11;
+            this.btnParlaklikGeriAl.Text = "Geri Al";
+            this.btnParlaklikGeriAl.UseVisualStyleBackColor = true;
+            this.btnParlaklikGeriAl.Click += new System.EventHandler(this.btnParlaklikGeriAl_Click);
+            // 
+            // btnParlaklikUygula
+            // 
+            this.btnParlaklikUygula.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnParlaklikUygula.Enabled = false;
+            this.btnParlaklikUygula.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnParlaklikUygula.Location = new System.Drawing.Point(385, 6);
+            this.btnParlaklikUygula.Name = "btnParlaklikUygula";
+            this.btnParlaklikUygula.Size = new System.Drawing.Size(90, 62);
+            this.btnParlaklikUygula.TabIndex = 10;
+            this.btnParlaklikUygula.Text = "Uygula";
+            this.btnParlaklikUygula.UseVisualStyleBackColor = true;
+            this.btnParlaklikUygula.Click += new System.EventHandler(this.btnParlaklikUygula_Click);
+            // 
+            // labelKontrast
+            // 
+            this.labelKontrast.AutoSize = true;
+            this.labelKontrast.Location = new System.Drawing.Point(358, 10);
+            this.labelKontrast.Name = "labelKontrast";
+            this.labelKontrast.Size = new System.Drawing.Size(13, 13);
+            this.labelKontrast.TabIndex = 9;
+            this.labelKontrast.Text = "0";
+            // 
+            // trackBarKontrast
+            // 
+            this.trackBarKontrast.LargeChange = 3;
+            this.trackBarKontrast.Location = new System.Drawing.Point(202, 26);
+            this.trackBarKontrast.Maximum = 255;
+            this.trackBarKontrast.Name = "trackBarKontrast";
+            this.trackBarKontrast.Size = new System.Drawing.Size(174, 45);
+            this.trackBarKontrast.TabIndex = 5;
+            this.trackBarKontrast.Scroll += new System.EventHandler(this.trackBarKontrast_Scroll);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(202, 10);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(46, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Kontrast";
+            // 
+            // labelParlaklik
+            // 
+            this.labelParlaklik.AutoSize = true;
+            this.labelParlaklik.Location = new System.Drawing.Point(162, 10);
+            this.labelParlaklik.Name = "labelParlaklik";
+            this.labelParlaklik.Size = new System.Drawing.Size(13, 13);
+            this.labelParlaklik.TabIndex = 6;
+            this.labelParlaklik.Text = "0";
+            // 
+            // trackBarParlaklik
+            // 
+            this.trackBarParlaklik.LargeChange = 3;
+            this.trackBarParlaklik.Location = new System.Drawing.Point(6, 26);
+            this.trackBarParlaklik.Maximum = 100;
+            this.trackBarParlaklik.Minimum = -100;
+            this.trackBarParlaklik.Name = "trackBarParlaklik";
+            this.trackBarParlaklik.Size = new System.Drawing.Size(174, 45);
+            this.trackBarParlaklik.TabIndex = 5;
+            this.trackBarParlaklik.Scroll += new System.EventHandler(this.trackBarParlaklik_Scroll);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 10);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(47, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Parlaklık";
+            // 
+            // tabEsikleme
+            // 
+            this.tabEsikleme.Location = new System.Drawing.Point(4, 4);
+            this.tabEsikleme.Name = "tabEsikleme";
+            this.tabEsikleme.Padding = new System.Windows.Forms.Padding(3);
+            this.tabEsikleme.Size = new System.Drawing.Size(579, 70);
+            this.tabEsikleme.TabIndex = 1;
+            this.tabEsikleme.Text = "Eşikleme";
+            this.tabEsikleme.UseVisualStyleBackColor = true;
+            // 
+            // tabRenkler
+            // 
+            this.tabRenkler.Controls.Add(this.labelB);
+            this.tabRenkler.Controls.Add(this.trackBarB);
+            this.tabRenkler.Controls.Add(this.label9);
+            this.tabRenkler.Controls.Add(this.labelG);
+            this.tabRenkler.Controls.Add(this.trackBarG);
+            this.tabRenkler.Controls.Add(this.label5);
+            this.tabRenkler.Controls.Add(this.labelR);
+            this.tabRenkler.Controls.Add(this.trackBarR);
+            this.tabRenkler.Controls.Add(this.label7);
+            this.tabRenkler.Location = new System.Drawing.Point(4, 4);
+            this.tabRenkler.Name = "tabRenkler";
+            this.tabRenkler.Padding = new System.Windows.Forms.Padding(3);
+            this.tabRenkler.Size = new System.Drawing.Size(579, 70);
+            this.tabRenkler.TabIndex = 2;
+            this.tabRenkler.Text = "Renkler";
+            this.tabRenkler.UseVisualStyleBackColor = true;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 4);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(579, 70);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Bulanıklaştırma";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 4);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(579, 70);
+            this.tabPage1.TabIndex = 4;
+            this.tabPage1.Text = "Netleştirme";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Location = new System.Drawing.Point(4, 4);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(579, 70);
+            this.tabPage5.TabIndex = 5;
+            this.tabPage5.Text = "Kenar Bulma";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Location = new System.Drawing.Point(4, 4);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(579, 70);
+            this.tabPage6.TabIndex = 6;
+            this.tabPage6.Text = "tabPage6";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 4);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(579, 70);
+            this.tabPage2.TabIndex = 7;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // labelZoom
             // 
@@ -441,195 +672,97 @@ namespace GoruntuIsleme_PhotoshopClone
             this.toolStripKaydet.Text = "&Save";
             this.toolStripKaydet.Click += new System.EventHandler(this.toolStripKaydet_Click);
             // 
-            // tabPage2
+            // labelG
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 4);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(579, 70);
-            this.tabPage2.TabIndex = 7;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.labelG.AutoSize = true;
+            this.labelG.Location = new System.Drawing.Point(344, 7);
+            this.labelG.Name = "labelG";
+            this.labelG.Size = new System.Drawing.Size(33, 13);
+            this.labelG.TabIndex = 17;
+            this.labelG.Text = "%100";
             // 
-            // tabPage6
+            // trackBarG
             // 
-            this.tabPage6.Location = new System.Drawing.Point(4, 4);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(579, 70);
-            this.tabPage6.TabIndex = 6;
-            this.tabPage6.Text = "tabPage6";
-            this.tabPage6.UseVisualStyleBackColor = true;
+            this.trackBarG.LargeChange = 3;
+            this.trackBarG.Location = new System.Drawing.Point(203, 23);
+            this.trackBarG.Maximum = 100;
+            this.trackBarG.Name = "trackBarG";
+            this.trackBarG.Size = new System.Drawing.Size(174, 45);
+            this.trackBarG.TabIndex = 13;
+            this.trackBarG.Value = 100;
+            this.trackBarG.Scroll += new System.EventHandler(this.trackBarG_Scroll);
+            this.trackBarG.ValueChanged += new System.EventHandler(this.trackBarG_ValueChanged);
             // 
-            // tabPage5
+            // label5
             // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 4);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(579, 70);
-            this.tabPage5.TabIndex = 5;
-            this.tabPage5.Text = "Kenar Bulma";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(203, 7);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(29, 13);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Yeşil";
             // 
-            // tabPage1
+            // labelR
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 4);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(579, 70);
-            this.tabPage1.TabIndex = 4;
-            this.tabPage1.Text = "Netleştirme";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.labelR.AutoSize = true;
+            this.labelR.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelR.Location = new System.Drawing.Point(148, 7);
+            this.labelR.Name = "labelR";
+            this.labelR.Size = new System.Drawing.Size(33, 13);
+            this.labelR.TabIndex = 15;
+            this.labelR.Text = "%100";
+            this.labelR.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // tabPage4
+            // trackBarR
             // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 4);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(579, 70);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Bulanıklaştırma";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.trackBarR.LargeChange = 3;
+            this.trackBarR.Location = new System.Drawing.Point(7, 23);
+            this.trackBarR.Maximum = 100;
+            this.trackBarR.Name = "trackBarR";
+            this.trackBarR.Size = new System.Drawing.Size(174, 45);
+            this.trackBarR.TabIndex = 14;
+            this.trackBarR.Value = 100;
+            this.trackBarR.Scroll += new System.EventHandler(this.trackBarR_Scroll);
+            this.trackBarR.ValueChanged += new System.EventHandler(this.trackBarR_ValueChanged);
             // 
-            // tabRenkler
+            // label7
             // 
-            this.tabRenkler.Location = new System.Drawing.Point(4, 4);
-            this.tabRenkler.Name = "tabRenkler";
-            this.tabRenkler.Padding = new System.Windows.Forms.Padding(3);
-            this.tabRenkler.Size = new System.Drawing.Size(579, 70);
-            this.tabRenkler.TabIndex = 2;
-            this.tabRenkler.Text = "Renkler";
-            this.tabRenkler.UseVisualStyleBackColor = true;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(7, 7);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(36, 13);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Kırmızı";
             // 
-            // tabEsikleme
+            // labelB
             // 
-            this.tabEsikleme.Location = new System.Drawing.Point(4, 4);
-            this.tabEsikleme.Name = "tabEsikleme";
-            this.tabEsikleme.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEsikleme.Size = new System.Drawing.Size(579, 70);
-            this.tabEsikleme.TabIndex = 1;
-            this.tabEsikleme.Text = "Eşikleme";
-            this.tabEsikleme.UseVisualStyleBackColor = true;
+            this.labelB.AutoSize = true;
+            this.labelB.Location = new System.Drawing.Point(540, 7);
+            this.labelB.Name = "labelB";
+            this.labelB.Size = new System.Drawing.Size(33, 13);
+            this.labelB.TabIndex = 20;
+            this.labelB.Text = "%100";
             // 
-            // tabParlaklikKontrast
+            // trackBarB
             // 
-            this.tabParlaklikKontrast.Controls.Add(this.btnParlaklikGeriAl);
-            this.tabParlaklikKontrast.Controls.Add(this.btnParlaklikUygula);
-            this.tabParlaklikKontrast.Controls.Add(this.labelKontrast);
-            this.tabParlaklikKontrast.Controls.Add(this.trackBarKontrast);
-            this.tabParlaklikKontrast.Controls.Add(this.label4);
-            this.tabParlaklikKontrast.Controls.Add(this.labelParlaklik);
-            this.tabParlaklikKontrast.Controls.Add(this.trackBarParlaklik);
-            this.tabParlaklikKontrast.Controls.Add(this.label2);
-            this.tabParlaklikKontrast.Location = new System.Drawing.Point(4, 4);
-            this.tabParlaklikKontrast.Name = "tabParlaklikKontrast";
-            this.tabParlaklikKontrast.Padding = new System.Windows.Forms.Padding(3);
-            this.tabParlaklikKontrast.Size = new System.Drawing.Size(579, 70);
-            this.tabParlaklikKontrast.TabIndex = 0;
-            this.tabParlaklikKontrast.Text = "Parlaklik ve Kontrast";
-            this.tabParlaklikKontrast.UseVisualStyleBackColor = true;
+            this.trackBarB.LargeChange = 3;
+            this.trackBarB.Location = new System.Drawing.Point(399, 23);
+            this.trackBarB.Maximum = 100;
+            this.trackBarB.Name = "trackBarB";
+            this.trackBarB.Size = new System.Drawing.Size(174, 45);
+            this.trackBarB.TabIndex = 18;
+            this.trackBarB.Value = 100;
+            this.trackBarB.Scroll += new System.EventHandler(this.trackBarB_Scroll);
+            this.trackBarB.ValueChanged += new System.EventHandler(this.trackBarB_ValueChanged);
             // 
-            // label2
+            // label9
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Parlaklık";
-            // 
-            // trackBarParlaklik
-            // 
-            this.trackBarParlaklik.LargeChange = 3;
-            this.trackBarParlaklik.Location = new System.Drawing.Point(6, 26);
-            this.trackBarParlaklik.Maximum = 100;
-            this.trackBarParlaklik.Name = "trackBarParlaklik";
-            this.trackBarParlaklik.Size = new System.Drawing.Size(174, 45);
-            this.trackBarParlaklik.TabIndex = 5;
-            this.trackBarParlaklik.Value = 50;
-            this.trackBarParlaklik.Scroll += new System.EventHandler(this.trackBarParlaklik_Scroll);
-            // 
-            // labelParlaklik
-            // 
-            this.labelParlaklik.AutoSize = true;
-            this.labelParlaklik.Location = new System.Drawing.Point(162, 10);
-            this.labelParlaklik.Name = "labelParlaklik";
-            this.labelParlaklik.Size = new System.Drawing.Size(13, 13);
-            this.labelParlaklik.TabIndex = 6;
-            this.labelParlaklik.Text = "0";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(202, 10);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Kontrast";
-            // 
-            // trackBarKontrast
-            // 
-            this.trackBarKontrast.LargeChange = 3;
-            this.trackBarKontrast.Location = new System.Drawing.Point(202, 26);
-            this.trackBarKontrast.Maximum = 100;
-            this.trackBarKontrast.Name = "trackBarKontrast";
-            this.trackBarKontrast.Size = new System.Drawing.Size(174, 45);
-            this.trackBarKontrast.TabIndex = 5;
-            this.trackBarKontrast.Value = 50;
-            this.trackBarKontrast.Scroll += new System.EventHandler(this.trackBarKontrast_Scroll);
-            // 
-            // labelKontrast
-            // 
-            this.labelKontrast.AutoSize = true;
-            this.labelKontrast.Location = new System.Drawing.Point(358, 10);
-            this.labelKontrast.Name = "labelKontrast";
-            this.labelKontrast.Size = new System.Drawing.Size(13, 13);
-            this.labelKontrast.TabIndex = 9;
-            this.labelKontrast.Text = "0";
-            // 
-            // btnParlaklikUygula
-            // 
-            this.btnParlaklikUygula.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnParlaklikUygula.Enabled = false;
-            this.btnParlaklikUygula.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnParlaklikUygula.Location = new System.Drawing.Point(385, 6);
-            this.btnParlaklikUygula.Name = "btnParlaklikUygula";
-            this.btnParlaklikUygula.Size = new System.Drawing.Size(90, 62);
-            this.btnParlaklikUygula.TabIndex = 10;
-            this.btnParlaklikUygula.Text = "Uygula";
-            this.btnParlaklikUygula.UseVisualStyleBackColor = true;
-            this.btnParlaklikUygula.Click += new System.EventHandler(this.btnParlaklikUygula_Click);
-            // 
-            // btnParlaklikGeriAl
-            // 
-            this.btnParlaklikGeriAl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnParlaklikGeriAl.Enabled = false;
-            this.btnParlaklikGeriAl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnParlaklikGeriAl.Location = new System.Drawing.Point(481, 6);
-            this.btnParlaklikGeriAl.Name = "btnParlaklikGeriAl";
-            this.btnParlaklikGeriAl.Size = new System.Drawing.Size(90, 62);
-            this.btnParlaklikGeriAl.TabIndex = 11;
-            this.btnParlaklikGeriAl.Text = "Geri Al";
-            this.btnParlaklikGeriAl.UseVisualStyleBackColor = true;
-            this.btnParlaklikGeriAl.Click += new System.EventHandler(this.btnParlaklikGeriAl_Click);
-            // 
-            // tabControl
-            // 
-            this.tabControl.Alignment = System.Windows.Forms.TabAlignment.Bottom;
-            this.tabControl.Controls.Add(this.tabParlaklikKontrast);
-            this.tabControl.Controls.Add(this.tabEsikleme);
-            this.tabControl.Controls.Add(this.tabRenkler);
-            this.tabControl.Controls.Add(this.tabPage4);
-            this.tabControl.Controls.Add(this.tabPage1);
-            this.tabControl.Controls.Add(this.tabPage5);
-            this.tabControl.Controls.Add(this.tabPage6);
-            this.tabControl.Controls.Add(this.tabPage2);
-            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl.Location = new System.Drawing.Point(0, 0);
-            this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(587, 96);
-            this.tabControl.TabIndex = 2;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(399, 7);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(30, 13);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "Mavi";
             // 
             // Form1
             // 
@@ -653,13 +786,18 @@ namespace GoruntuIsleme_PhotoshopClone
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.toolStrip2.ResumeLayout(false);
-            this.toolStrip2.PerformLayout();
+            this.tabControl.ResumeLayout(false);
             this.tabParlaklikKontrast.ResumeLayout(false);
             this.tabParlaklikKontrast.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarParlaklik)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarKontrast)).EndInit();
-            this.tabControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarParlaklik)).EndInit();
+            this.tabRenkler.ResumeLayout(false);
+            this.tabRenkler.PerformLayout();
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarR)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarB)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -678,12 +816,12 @@ namespace GoruntuIsleme_PhotoshopClone
         private System.Windows.Forms.ToolStripButton toolStripKontrast;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ToolStripButton toolStripEsikleme;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStripButton toolStripGri;
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripButton toolStripButton6;
-        private System.Windows.Forms.ToolStripButton toolStripButton7;
-        private System.Windows.Forms.ToolStripButton toolStripButton8;
+        private System.Windows.Forms.ToolStripButton toolStripR;
+        private System.Windows.Forms.ToolStripButton toolStripB;
+        private System.Windows.Forms.ToolStripButton toolStripG;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripButton printToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
@@ -691,7 +829,7 @@ namespace GoruntuIsleme_PhotoshopClone
         private System.Windows.Forms.ToolStripButton copyToolStripButton;
         private System.Windows.Forms.ToolStripButton pasteToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripButton toolStripButton9;
+        private System.Windows.Forms.ToolStripButton toolStripNegatif;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Label labelZoom;
@@ -718,6 +856,15 @@ namespace GoruntuIsleme_PhotoshopClone
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Label labelB;
+        private System.Windows.Forms.TrackBar trackBarB;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label labelG;
+        private System.Windows.Forms.TrackBar trackBarG;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labelR;
+        private System.Windows.Forms.TrackBar trackBarR;
+        private System.Windows.Forms.Label label7;
     }
 }
 
