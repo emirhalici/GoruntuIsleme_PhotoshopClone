@@ -13,7 +13,10 @@ namespace GoruntuIsleme_PhotoshopClone
             InitializeComponent();
         }
 
-        public void toolStripAktiflestir(bool boo)
+        Bitmap OrijinalResim; // rgb renk ayari icin
+        Bitmap YedekFotograf; // diger menu ayarlari icin
+
+        public void toolStripAktiflestir(bool boo) // soldaki menuyu aktif-deaktif eder
         {
             toolStripParlaklik.Enabled = boo;
             toolStripKontrast.Enabled = boo;
@@ -23,22 +26,28 @@ namespace GoruntuIsleme_PhotoshopClone
             toolStripR.Enabled = boo;
             toolStripG.Enabled = boo;
             toolStripB.Enabled = boo;
+            toolStripBulaniklastirma.Enabled = boo;
+            trackBarR.Enabled = boo;
+            trackBarG.Enabled = boo;
+            trackBarB.Enabled = boo;
+            btnEsikUygula.Enabled = boo;
+            btnHistogramGoster.Enabled = boo;
+            btnBulaniklastirmaGeriAl.Enabled = boo;
+            btnBulaniklastirmaUygula.Enabled = boo;
         }
 
-        private void trackBar1_Scroll(object sender, EventArgs e)
+        private void trackBarZoom_Scroll(object sender, EventArgs e) // fotograf goruntuleme boyutunu degistiyor
         {
             int sizeY = pictureBox1.Image.Height;
-            int katsayi = trackBar1.Value;
+            int katsayi = trackBarZoom.Value;
             pictureBox1.Height = sizeY * katsayi / 100;
-            labelZoom.Text = trackBar1.Value + "%";
+            labelZoom.Text = trackBarZoom.Value + "%";
         }
 
         private void trackBarParlaklik_Scroll(object sender, EventArgs e)
         {
             labelParlaklik.Text = trackBarParlaklik.Value.ToString();
         }
-
-        public Bitmap YedekFotograf;
 
         private void toolStripParlaklik_Click(object sender, EventArgs e)
         {
@@ -55,14 +64,12 @@ namespace GoruntuIsleme_PhotoshopClone
             tabControl.SelectedTab = tabEsikleme;
         }
 
-       
-
         private void trackBarKontrast_Scroll(object sender, EventArgs e)
         {
             labelKontrast.Text = trackBarKontrast.Value.ToString();
         }
 
-        private void btnParlaklikUygula_Click(object sender, EventArgs e)
+        private void btnParlaklikUygula_Click(object sender, EventArgs e) // parlaklik ve kontrast ayari yapiyor
         {
             YedekFotograf = new Bitmap(pictureBox1.Image);
             Bitmap YeniFotograf = YedekFotograf;
@@ -81,24 +88,24 @@ namespace GoruntuIsleme_PhotoshopClone
             btnParlaklikUygula.Enabled = false;
         }
 
-        private void btnParlaklikGeriAl_Click(object sender, EventArgs e)
+        private void btnParlaklikGeriAl_Click(object sender, EventArgs e) // yapilan parlaklik ve kontrast ayarini geri aliyor
         {
             pictureBox1.Image = YedekFotograf;
             btnParlaklikGeriAl.Enabled = false;
             btnParlaklikUygula.Enabled = true;
         }
 
-        private void toolStripYeni_Click(object sender, EventArgs e)
+        private void toolStripYeni_Click(object sender, EventArgs e) // bos yeni bir resim aciyor
         {
             Bitmap bitmap = new Bitmap(500, 500);
             Graphics g = Graphics.FromImage(bitmap);
             g.Clear(Color.Gray);
             pictureBox1.Image = bitmap;
-            trackBar1.Enabled = true;
+            trackBarZoom.Enabled = true;
             btnParlaklikUygula.Enabled = true;
             toolStripAktiflestir(true);
         }
-        private void toolStripAc_Click(object sender, EventArgs e)
+        private void toolStripAc_Click(object sender, EventArgs e) // resim dosyasi aciyor
         {
             try
             {
@@ -108,7 +115,7 @@ namespace GoruntuIsleme_PhotoshopClone
                 openFileDialog1.ShowDialog();
                 String ResminYolu = openFileDialog1.FileName;
                 pictureBox1.Image = Image.FromFile(ResminYolu);
-                trackBar1.Enabled = true;
+                trackBarZoom.Enabled = true;
                 btnParlaklikUygula.Enabled = true;
                 toolStripAktiflestir(true);
             }
@@ -118,7 +125,7 @@ namespace GoruntuIsleme_PhotoshopClone
             }
         }
 
-        private void toolStripKaydet_Click(object sender, EventArgs e)
+        private void toolStripKaydet_Click(object sender, EventArgs e) // resmi kaydediyor
         {
             try
             {
@@ -126,11 +133,9 @@ namespace GoruntuIsleme_PhotoshopClone
                 saveFileDialog1.Filter = "Jpeg Resmi|*.jpg|Bitmap Resmi|*.bmp|Gif Resmi|*.gif";
                 saveFileDialog1.Title = "Resmi Kaydet";
                 saveFileDialog1.ShowDialog();
-                if (saveFileDialog1.FileName != "") //Dosya adı boş değilse kaydedecek.
+                if (saveFileDialog1.FileName != "")
                 {
-                    // FileStream nesnesi ile kayıtı gerçekleştirecek.
                     FileStream DosyaAkisi = (FileStream)saveFileDialog1.OpenFile();
-
                     if (pictureBox1.Image == null)
                     {
                         MessageBox.Show("Lutfen resim kutusunda resim oldugundan emin olun.");
@@ -158,7 +163,6 @@ namespace GoruntuIsleme_PhotoshopClone
                         MessageBox.Show("Lutfen resim kutusunda resim oldugundan emin olun.");
                         throw;
                     }
-
                 }
             }
             catch
@@ -167,7 +171,7 @@ namespace GoruntuIsleme_PhotoshopClone
             }
         }
 
-        private void toolStripNegatif_Click(object sender, EventArgs e)
+        private void toolStripNegatif_Click(object sender, EventArgs e) // fotografin negatifini aliyor
         {
             if (!toolStripNegatif.Checked)
             {
@@ -180,7 +184,7 @@ namespace GoruntuIsleme_PhotoshopClone
             }
         }
 
-        private void toolStripGri_Click(object sender, EventArgs e)
+        private void toolStripGri_Click(object sender, EventArgs e) // fotografi griye ceviriyor
         {
             if (!toolStripGri.Checked) // eger deaktive ediliyorsa
             {
@@ -194,9 +198,7 @@ namespace GoruntuIsleme_PhotoshopClone
             }
         }
 
-        Bitmap OrijinalResim;
-
-        public void RenkAyariYap()
+        public void RenkAyariYap() // cagirildikca rgb ayarini yapip resmi guncelliyor
         {
             int rOlcek = trackBarR.Value;
             int gOlcek = trackBarG.Value;
@@ -260,6 +262,97 @@ namespace GoruntuIsleme_PhotoshopClone
         {
             if (trackBarB.Value == 0) toolStripB.Checked = false;
             else toolStripB.Checked = true;
+        }
+
+        private void radioBtnCiftEsik_CheckedChanged(object sender, EventArgs e)
+        {
+            trackBarEsik2.Visible = true;
+            labelEsik2.Visible = true;
+            labelEsik2Text.Visible = true;
+            labelEsik1Text.Text = "Alt Eşik";
+        }
+
+        private void radioBtnTekEsik_CheckedChanged(object sender, EventArgs e)
+        {
+            trackBarEsik2.Visible = false;
+            labelEsik2.Visible = false;
+            labelEsik2Text.Visible = false;
+            labelEsik1Text.Text = "Eşik";
+        }
+
+        private void trackBarEsik1_Scroll(object sender, EventArgs e)
+        {
+            labelEsik1.Text = trackBarEsik1.Value.ToString();
+        }
+
+        private void trackBarEsik2_Scroll(object sender, EventArgs e)
+        {
+            labelEsik2.Text = trackBarEsik2.Value.ToString();
+        }
+
+        private void btnEsikUygula_Click(object sender, EventArgs e)
+        {
+            btnEsikUygula.Enabled = false;
+            YedekFotograf = new Bitmap(pictureBox1.Image);
+            int altDeger = trackBarEsik1.Value;
+            int ustDeger = trackBarEsik2.Value;
+            Bitmap YeniFotograf;
+            if (radioBtnCiftEsik.Checked)
+            {
+                Console.WriteLine("cift esik, altDeger: " + altDeger + " ustDeger: " + ustDeger);
+                YeniFotograf = Esikleme(YedekFotograf, altDeger, ustDeger);
+            } else
+            {
+                Console.WriteLine("tek esik, altDeger: " + altDeger);
+                YeniFotograf = Esikleme(YedekFotograf, altDeger);
+            }
+            pictureBox1.Image = YeniFotograf;
+            btnEsikGeriAl.Enabled = true;
+        }
+
+        private void btnEsikGeriAl_Click(object sender, EventArgs e)
+        {
+            btnEsikGeriAl.Enabled = false;
+            pictureBox1.Image = YedekFotograf;
+            btnEsikUygula.Enabled = true;
+        }
+
+        private void btnHistogramGoster_Click(object sender, EventArgs e)
+        {
+            HistogramGosterici gosterici = new HistogramGosterici();
+            gosterici.GirisFoto = Histogram(new Bitmap(pictureBox1.Image));
+            gosterici.ShowDialog();
+            gosterici.Dispose();
+        }
+
+        private void trackBarBulaniklastirmaKatsayi_Scroll(object sender, EventArgs e)
+        {
+            labelBulaniklastirma.Text = ((trackBarBulaniklastirmaKatsayi.Value * 2) + 1).ToString();
+        }
+
+        private void btnBulaniklastirmaGeriAl_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = YedekFotograf;
+            btnBulaniklastirmaGeriAl.Enabled = false;
+            btnBulaniklastirmaUygula.Enabled = true;
+        }
+
+        private void btnBulaniklastirmaUygula_Click(object sender, EventArgs e)
+        {
+            YedekFotograf = new Bitmap(pictureBox1.Image);
+            int Olcek = (trackBarBulaniklastirmaKatsayi.Value * 2)+1;
+            Bitmap YeniFotograf = new Bitmap(YedekFotograf.Width, YedekFotograf.Height);
+            if (radioBtnGauss.Checked) YeniFotograf = Model.BulaniklastirmaGaussian(YedekFotograf, Olcek);
+            else if (radioBtnMean.Checked) YeniFotograf = Model.BulaniklastirmaMean(YedekFotograf, Olcek);
+            else if (radioBtnMedian.Checked) YeniFotograf = Model.BulaniklastirmaMedian(YedekFotograf, Olcek);
+            pictureBox1.Image = YeniFotograf;
+            btnBulaniklastirmaGeriAl.Enabled = true;
+            btnBulaniklastirmaUygula.Enabled = false;
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabBulaniklastirma;
         }
     }
 }
