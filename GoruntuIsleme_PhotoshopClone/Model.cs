@@ -1248,6 +1248,126 @@ namespace GoruntuIsleme_PhotoshopClone
                 }
             }
             return CikisResmi;
+
         }
+
+        public static Bitmap TasimaX(Bitmap GirisResmi, int miktar)
+        {
+            Color OkunanRenk;
+            Bitmap CikisResmi;
+            int ResimGenisligi = GirisResmi.Width;
+            int ResimYuksekligi = GirisResmi.Height;
+            CikisResmi = new Bitmap(ResimGenisligi, ResimYuksekligi);
+            double x2 = 0;
+            int Tx = miktar;
+            for (int x1 = 0; x1 < (ResimGenisligi); x1++)
+            {
+                for (int y1 = 0; y1 < (ResimYuksekligi); y1++)
+                {
+                    OkunanRenk = GirisResmi.GetPixel(x1, y1);
+                    x2 = x1 + Tx;
+                    if (x2 > 0 && x2 < ResimGenisligi) CikisResmi.SetPixel((int)x2, (int)y1, OkunanRenk);
+                }
+            }
+            return CikisResmi;
+        }
+
+        public static Bitmap TasimaY(Bitmap GirisResmi, int miktar)
+        {
+            Color OkunanRenk;
+            Bitmap CikisResmi;
+            int ResimGenisligi = GirisResmi.Width;
+            int ResimYuksekligi = GirisResmi.Height;
+            CikisResmi = new Bitmap(ResimGenisligi, ResimYuksekligi);
+            int y2 = 0;
+            int Ty = miktar;
+            for (int x1 = 0; x1 < (ResimGenisligi); x1++)
+            {
+                for (int y1 = 0; y1 < (ResimYuksekligi); y1++)
+                {
+                    OkunanRenk = GirisResmi.GetPixel(x1, y1);
+                    y2 = y1 + Ty;
+                    if (y2 > 0 && y2 < ResimGenisligi) CikisResmi.SetPixel(x1, y2, OkunanRenk);
+                }
+            }
+            return CikisResmi;
+        }
+
+        public static Bitmap Aynalama(Bitmap GirisResmi, int miktar)
+        {
+            Color OkunanRenk;
+            Bitmap CikisResmi;
+            int ResimGenisligi = GirisResmi.Width;
+            int ResimYuksekligi = GirisResmi.Height;
+            CikisResmi = new Bitmap(ResimGenisligi, ResimYuksekligi);
+            double RadyanAci = miktar * 2 * Math.PI / 360;
+            double x2 = 0, y2 = 0;
+            int x0 = ResimGenisligi / 2;
+            int y0 = ResimYuksekligi / 2;
+            for (int x1 = 0; x1 < (ResimGenisligi); x1++)
+            {
+                for (int y1 = 0; y1 < (ResimYuksekligi); y1++)
+                {
+                    OkunanRenk = GirisResmi.GetPixel(x1, y1);
+                    double Delta = (x1 - x0) * Math.Sin(RadyanAci) - (y1 - y0) * Math.Cos(RadyanAci);
+                    x2 = Convert.ToInt16(x1 + 2 * Delta * (-Math.Sin(RadyanAci)));
+                    y2 = Convert.ToInt16(y1 + 2 * Delta * (Math.Cos(RadyanAci)));
+                    if (x2 > 0 && x2 < ResimGenisligi && y2 > 0 && y2 < ResimYuksekligi)
+                        CikisResmi.SetPixel((int)x2, (int)y2, OkunanRenk);
+                }
+            }
+            return CikisResmi;
+        }
+
+        public static Bitmap Dondurme(Bitmap GirisResmi, int miktar)
+        {
+            Color OkunanRenk;
+            Bitmap CikisResmi;
+            int ResimGenisligi = GirisResmi.Width;
+            int ResimYuksekligi = GirisResmi.Height;
+            CikisResmi = new Bitmap(ResimGenisligi, ResimYuksekligi);
+            double RadyanAci = miktar * 2 * Math.PI / 360;
+            double x2 = 0, y2 = 0;
+            int x0 = ResimGenisligi / 2;
+            int y0 = ResimYuksekligi / 2;
+            for (int x1 = 0; x1 < (ResimGenisligi); x1++)
+            {
+                for (int y1 = 0; y1 < (ResimYuksekligi); y1++)
+                {
+                    OkunanRenk = GirisResmi.GetPixel(x1, y1);
+                    x2 = Math.Cos(RadyanAci) * (x1 - x0) - Math.Sin(RadyanAci) * (y1 - y0) + x0;
+                    y2 = Math.Sin(RadyanAci) * (x1 - x0) + Math.Cos(RadyanAci) * (y1 - y0) + y0;
+                    if (x2 > 0 && x2 < ResimGenisligi && y2 > 0 && y2 < ResimYuksekligi)
+                        CikisResmi.SetPixel((int)x2, (int)y2, OkunanRenk);
+                }
+            }
+            return CikisResmi;
+        }
+
+        public static Bitmap Egme(Bitmap GirisResmi, int miktar)
+        {
+            Color OkunanRenk;
+            Bitmap CikisResmi;
+            int ResimGenisligi = GirisResmi.Width;
+            int ResimYuksekligi = GirisResmi.Height;
+            CikisResmi = new Bitmap(ResimGenisligi, ResimYuksekligi);
+            //Taşıma mesafelerini atıyor.
+            double EgmeKatsayisi = (double) miktar / 100;
+            double x2 = 0, y2 = 0;
+            for (int x1 = 0; x1 < (ResimGenisligi); x1++)
+            {
+                for (int y1 = 0; y1 < (ResimYuksekligi); y1++)
+                {
+                    OkunanRenk = GirisResmi.GetPixel(x1, y1);
+                    x2 = x1;
+                    y2 = -EgmeKatsayisi * x1 + y1;
+                    if (x2 > 0 && x2 < ResimGenisligi && y2 > 0 && y2 < ResimYuksekligi)
+                        CikisResmi.SetPixel((int)x2, (int)y2, OkunanRenk);
+                }
+            }
+
+            return CikisResmi;
+        }
+
     }
 }

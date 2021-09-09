@@ -33,6 +33,7 @@ namespace GoruntuIsleme_PhotoshopClone
             toolStripToplama.Enabled = boo;
             toolStripCikarma.Enabled = boo;
             toolStripOperator.Enabled = boo;
+            toolStripDonusum.Enabled = boo;
             trackBarR.Enabled = boo;
             trackBarG.Enabled = boo;
             trackBarB.Enabled = boo;
@@ -45,6 +46,7 @@ namespace GoruntuIsleme_PhotoshopClone
             btnAlanUygula.Enabled = boo;
             btnTopCikUygula.Enabled = boo;
             btnMantikUygula.Enabled = boo;
+            btnDonusumUygula.Enabled = boo;
         }
 
         public void toolStripCheck(bool boo)
@@ -59,6 +61,7 @@ namespace GoruntuIsleme_PhotoshopClone
             toolStripToplama.Checked = boo;
             toolStripOperator.Checked = boo;
             toolStripCikarma.Checked = boo;
+            toolStripDonusum.Checked = boo;
         }
 
 
@@ -809,6 +812,40 @@ namespace GoruntuIsleme_PhotoshopClone
         private void trackBarAlanAsindirEsik_Scroll(object sender, EventArgs e)
         {
             labelAlanAsindir.Text = trackBarAlanAsindirEsik.Value.ToString();
+        }
+
+        private void toolStripDonusum_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabDonusumler;
+            toolStripCheck(false);
+            toolStripDonusum.Checked = true;
+        }
+
+        private void trackBarDonusum_Scroll(object sender, EventArgs e)
+        {
+            labelDonusum.Text = trackBarDonusum.Value.ToString();
+        }
+
+        private void btnDonusumUygula_Click(object sender, EventArgs e)
+        {
+            YedekFotograf = new Bitmap(pictureBox1.Image);
+            int miktar = trackBarDonusum.Value;
+            Bitmap YeniFotograf = new Bitmap(YedekFotograf.Width, YedekFotograf.Height);
+            if (radioBtnDonusumTasimaX.Checked) YeniFotograf = TasimaX(YedekFotograf, miktar);
+            if (radioBtnDonusumTasimaY.Checked) YeniFotograf = TasimaY(YedekFotograf, miktar);
+            if (radioBtnDonusumAynalama.Checked) YeniFotograf = Aynalama(YedekFotograf, miktar);
+            if (radioBtnDonusumDondurme.Checked) YeniFotograf = Dondurme(YedekFotograf, miktar);
+            if (radioBtnDonusumEgme.Checked) YeniFotograf = Egme(YedekFotograf, miktar);
+            pictureBox1.Image = YeniFotograf;
+            btnDonusumGeriAl.Enabled = true;
+            btnDonusumUygula.Enabled = false;
+        }
+
+        private void btnDonusumGeriAl_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = YedekFotograf;
+            btnDonusumGeriAl.Enabled = false;
+            btnDonusumUygula.Enabled = true;
         }
     }
 }
