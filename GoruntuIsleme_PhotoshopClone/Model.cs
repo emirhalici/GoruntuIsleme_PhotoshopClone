@@ -12,6 +12,26 @@ namespace GoruntuIsleme_PhotoshopClone
             return new Bitmap(giris.Width, giris.Height);
         }
 
+        public static Bitmap DosyaAc()
+        {
+            try
+            {
+                System.Windows.Forms.OpenFileDialog openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+                openFileDialog1.DefaultExt = ".jpg";
+                openFileDialog1.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*";
+                openFileDialog1.ShowDialog();
+                String ResminYolu = openFileDialog1.FileName;
+                Bitmap Resim = (Bitmap) Image.FromFile(ResminYolu);
+                return Resim;
+            }
+            catch (Exception)
+            {
+                System.Windows.Forms.MessageBox.Show("Dosya acilamadi.");
+                return null;
+            }
+        }
+
+
         public static Bitmap Parlaklik(Bitmap giris, int fark)
         {
             Bitmap cikis = NewBitmap(giris);
@@ -133,6 +153,24 @@ namespace GoruntuIsleme_PhotoshopClone
             return cikis;
         }
 
+        public static Bitmap EsiklemeSiyahBeyaz(Bitmap giris, int deger)
+        {
+            Bitmap cikis = NewBitmap(giris);
+            for (int x = 0; x < cikis.Width; x++)
+            {
+                for (int y = 0; y < cikis.Height; y++)
+                {
+                    Color pixel = giris.GetPixel(x, y);
+                    int r = pixel.R > deger ? 255 : 0;
+                    int g = pixel.G > deger ? 255 : 0;
+                    int b = pixel.B > deger ? 255 : 0;
+                    cikis.SetPixel(x, y, Color.FromArgb(r, g, b));
+                }
+
+            }
+            return cikis;
+        }
+
         public static Bitmap Esikleme(Bitmap giris, int altDeger, int ustDeger)
         {
             Bitmap cikis = NewBitmap(giris);
@@ -158,8 +196,6 @@ namespace GoruntuIsleme_PhotoshopClone
         {
             ArrayList DiziPiksel = new ArrayList();
             int OrtalamaRenk = 0;
-            Color OkunanRenk;
-            int R = 0, G = 0, B = 0;
             Bitmap GirisResmi;
             GirisResmi = Gri(giris);
             Bitmap CikisResmi = new Bitmap(GirisResmi.Width, GirisResmi.Height);
@@ -521,8 +557,6 @@ namespace GoruntuIsleme_PhotoshopClone
             int ResimYuksekligi = giris.Height;
             CikisResmi = new Bitmap(ResimGenisligi, ResimYuksekligi);
             int SablonBoyutu = 3;
-            int ToplamAci = 0;
-            int PixelSayisi = 0;
             int[,] Matris = {
                 { -1, -1, -1, 1, -2, 1, 1, 1, 1 },
                 { -1, -1, 1, -1, -2, 1, 1, 1, 1 },
@@ -559,6 +593,658 @@ namespace GoruntuIsleme_PhotoshopClone
                     if (g > 255) g = 255;
                     if (g < esikDegeri) g = 0;
                     CikisResmi.SetPixel(x, y, Color.FromArgb(g, g, g));
+                }
+            }
+            return CikisResmi;
+        }
+
+        public static Tuple<Bitmap, Bitmap> ResimBoyutlariniEsitle(Bitmap AnaResim, Bitmap DigerResim) // DigerResim AnaResim'den buyuk olmali.
+        {
+            int h1 = AnaResim.Height; int h2 = DigerResim.Height;
+            int w1 = AnaResim.Width; int w2 = DigerResim.Width;
+
+            int x = w1 > w2 ? w2 : w1;
+            int y = h1 > h2 ? h2 : h1;
+            Bitmap CikisResmi = new Bitmap(x, y);
+            Bitmap CikisResmi2 = new Bitmap(x, y);
+            for (int h = 0; h < y; h++)
+            {
+                for (int w = 0; w < x; w++)
+                {
+                    try
+                    {
+                        CikisResmi.SetPixel(w, h, DigerResim.GetPixel(w, h));
+                        CikisResmi2.SetPixel(w, h, AnaResim.GetPixel(w, h));
+                    }
+                    catch (Exception)
+                    {
+                        System.Windows.Forms.MessageBox.Show("Hata olustu.");
+                        Tuple<Bitmap, Bitmap> retu = Tuple.Create(CikisResmi, CikisResmi2);
+                        return retu;
+                    }
+
+                }
+            }
+            Tuple<Bitmap, Bitmap> tuple = Tuple.Create(CikisResmi, CikisResmi2);
+            return tuple;
+        }
+
+        public static Bitmap ResimdenArkaPlaniCikarOlcekliEsikli(Bitmap AnaResim, Bitmap Arkaplan, int Olcek, int Esikleme) // goruntuler esit olmali veya AnaResim daha kucuk olmali
+        {
+            int ResimGenisligi = AnaResim.Width;
+            int ResimYuksekligi = AnaResim.Height;
+            Bitmap CikisResmi = new Bitmap(ResimGenisligi, ResimYuksekligi);
+            for (int x = 0; x < AnaResim.Width; x++)
+            {
+                for (int y = 0; y < AnaResim.Height; y++)
+                {
+                    Color Pixel1 = AnaResim.GetPixel(x, y);
+                    Color Pixel2 = Arkaplan.GetPixel(x, y);
+                    int R = Math.Abs(Pixel1.R - Pixel2.R);
+                    if (R < Esikleme) R = 0;
+                    R = Olcek * R;
+                    if (R > 255) R = 255;
+                    Color FinalPixel = Color.FromArgb(R, R, R);
+                    CikisResmi.SetPixel(x, y, FinalPixel);
+                }
+            }
+            return CikisResmi;
+        }
+
+        public static Bitmap ResimdenArkaPlaniCikarOlcekliEsikliRenkli(Bitmap AnaResim, Bitmap Arkaplan, int Olcek, int Esikleme) // goruntuler esit olmali veya AnaResim daha kucuk olmali
+        {
+            int ResimGenisligi = AnaResim.Width;
+            int ResimYuksekligi = AnaResim.Height;
+            Bitmap CikisResmi = new Bitmap(ResimGenisligi, ResimYuksekligi);
+            for (int x = 0; x < AnaResim.Width; x++)
+            {
+                for (int y = 0; y < AnaResim.Height; y++)
+                {
+                    Color Pixel1 = AnaResim.GetPixel(x, y);
+                    Color Pixel2 = Arkaplan.GetPixel(x, y);
+                    int R = Math.Abs(Pixel1.R - Pixel2.R);
+                    if (R < Esikleme) R = 0;
+                    R = Olcek * R;
+                    if (R > 255) R = 255;
+                    int G = Math.Abs(Pixel1.G - Pixel2.G);
+                    if (G < Esikleme) G = 0;
+                    G = Olcek * G;
+                    if (G > 255) G = 255;
+                    int B = Math.Abs(Pixel1.B - Pixel2.B);
+                    if (B < Esikleme) B = 0;
+                    B = Olcek * B;
+                    if (B > 255) B = 255;
+                    Color FinalPixel = Color.FromArgb(R, G, B);
+                    CikisResmi.SetPixel(x, y, FinalPixel);
+                }
+            }
+            return CikisResmi;
+        }
+
+        public static Bitmap BolgeleriAyir(Bitmap GirisResmi, int Esikleme)
+        {
+            Bitmap CikisResmi;
+            int KomsularinEnKucukEtiketDegeri = 0;
+            int ResimGenisligi = GirisResmi.Width;
+            int ResimYuksekligi = GirisResmi.Height;
+            CikisResmi = new Bitmap(ResimGenisligi, ResimYuksekligi);
+            int PikselSayisi = ResimGenisligi * ResimYuksekligi;
+            int x, y, i, j, EtiketNo = 0;
+            int[,] EtiketNumarasi = new int[ResimGenisligi, ResimYuksekligi];
+            for (x = 0; x < ResimGenisligi; x++)
+            {
+                for (y = 0; y < ResimYuksekligi; y++)
+                {
+                    EtiketNumarasi[x, y] = 0;
+                }
+            }
+            int IlkDeger = 0, SonDeger = 0;
+            bool DegisimVar = false; 
+            do
+            {
+                DegisimVar = false;
+                for (y = 1; y < ResimYuksekligi - 1; y++) 
+                {
+                    for (x = 1; x < ResimGenisligi - 1; x++)
+                    {
+                        if (GirisResmi.GetPixel(x, y).R > Esikleme)
+                        {
+                            IlkDeger = EtiketNumarasi[x, y];
+                            KomsularinEnKucukEtiketDegeri = 0;
+                            for (j = -1; j <= 1; j++) 
+                            {
+                                for (i = -1; i <= 1; i++)
+                                {
+                                    if (EtiketNumarasi[x + i, y + j] != 0 &&
+                                   KomsularinEnKucukEtiketDegeri == 0)
+                                    {
+                                        KomsularinEnKucukEtiketDegeri = EtiketNumarasi[x + i, y + j];
+                                    }
+                                    else if (EtiketNumarasi[x + i, y + j] <
+                                    KomsularinEnKucukEtiketDegeri && EtiketNumarasi[x + i, y + j] != 0 &&
+                                    KomsularinEnKucukEtiketDegeri != 0) 
+                                    {
+                                        KomsularinEnKucukEtiketDegeri = EtiketNumarasi[x + i, y + j];
+                                    }
+                                }
+                            }
+                            if (KomsularinEnKucukEtiketDegeri != 0) 
+                            {
+                                EtiketNumarasi[x, y] = KomsularinEnKucukEtiketDegeri;
+                            }
+                            else if (KomsularinEnKucukEtiketDegeri == 0) 
+                            {
+                                EtiketNo = EtiketNo + 1;
+                                EtiketNumarasi[x, y] = EtiketNo;
+                            }
+                            SonDeger = EtiketNumarasi[x, y]; 
+                            if (IlkDeger != SonDeger)
+                                DegisimVar = true;
+                        }
+                    }
+                }
+            } while (DegisimVar == true); 
+            int[] DiziEtiket = new int[PikselSayisi];
+            i = 0;
+            for (x = 1; x < ResimGenisligi - 1; x++)
+            {
+                for (y = 1; y < ResimYuksekligi - 1; y++)
+                {
+                    i++;
+                    DiziEtiket[i] = EtiketNumarasi[x, y];
+                }
+            }
+            Array.Sort(DiziEtiket);
+            int[] TekrarsizEtiketNumaralari = DiziEtiket.Distinct().ToArray();
+            int[] RenkDizisi = new int[TekrarsizEtiketNumaralari.Length];
+
+            for (j = 0; j < TekrarsizEtiketNumaralari.Length; j++)
+            {
+                RenkDizisi[j] = TekrarsizEtiketNumaralari[j];
+            }
+
+            int RenkSayisi = RenkDizisi.Length;
+            Color[] Renkler = new Color[RenkSayisi];
+            Random Rastgele = new Random();
+            int Kirmizi, Yesil, Mavi;
+            for (int r = 0; r < RenkSayisi; r++)
+            {
+                Kirmizi = Rastgele.Next(5, 25) * 10; 
+                Yesil = Rastgele.Next(5, 25) * 10;
+                Mavi = Rastgele.Next(5, 25) * 10;
+                Renkler[r] = Color.FromArgb(Kirmizi, Yesil, Mavi);
+            }
+            for (x = 1; x < ResimGenisligi - 1; x++) 
+            {
+                for (y = 1; y < ResimYuksekligi - 1; y++)
+                {
+                    int RenkSiraNo = Array.IndexOf(RenkDizisi, EtiketNumarasi[x, y]); 
+                    if (GirisResmi.GetPixel(x, y).R < Esikleme) 
+                    {
+                        CikisResmi.SetPixel(x, y, Color.Black);
+                    }
+                    else
+                    {
+                        CikisResmi.SetPixel(x, y, Renkler[RenkSiraNo]);
+                    }
+                }
+            }
+            return CikisResmi;
+        }
+
+        public static Bitmap Asindirma(Bitmap GirisResmi) // TODO
+        {
+            Color OkunanRenk;
+            Bitmap CikisResmi;
+            int ResimGenisligi = GirisResmi.Width;
+            int ResimYuksekligi = GirisResmi.Height;
+            CikisResmi = new Bitmap(ResimGenisligi, ResimYuksekligi);
+            Graphics.FromImage(CikisResmi).Clear(Color.Black);
+            int x, y, i, j;
+            int SablonBoyutu = 3;
+            int ElemanSayisi = SablonBoyutu * SablonBoyutu;
+            for (x = (SablonBoyutu - 1) / 2; x < ResimGenisligi - (SablonBoyutu - 1) / 2; x++) 
+            {
+                for (y = (SablonBoyutu - 1) / 2; y < ResimYuksekligi - (SablonBoyutu - 1) / 2; y++)
+                {
+                    bool RenkSiyah = false;
+                    for (i = -((SablonBoyutu - 1) / 2); i <= (SablonBoyutu - 1) / 2; i++)
+                    {
+                        for (j = -((SablonBoyutu - 1) / 2); j <= (SablonBoyutu - 1) / 2; j++)
+                        {
+                            OkunanRenk = GirisResmi.GetPixel(x + i, y + j);
+                            if (OkunanRenk.R < 128) //Siyah ise
+                                RenkSiyah = true;
+                        }
+                    }
+                    if (RenkSiyah == true) //Komşularda siyah varsa
+                    {
+                        Color KendiRengi = GirisResmi.GetPixel(x, y);
+                        if (KendiRengi.R > 128) //kendi rengin beyaz ise onu da siyah yap.
+                            CikisResmi.SetPixel(x, y, Color.FromArgb(255, 255, 255)); 
+                    }
+                    else //komşularda siyah yok ise rengi kirmizi
+                        CikisResmi.SetPixel(x, y, Color.FromArgb(255, 0, 0));
+                }
+            }
+            return CikisResmi;
+        }
+
+        public static Bitmap Genisletme(Bitmap GirisResmi)
+        {
+            Color OkunanRenk;
+            Bitmap CikisResmi;
+            int ResimGenisligi = GirisResmi.Width;
+            int ResimYuksekligi = GirisResmi.Height;
+            CikisResmi = new Bitmap(ResimGenisligi, ResimYuksekligi);
+            Graphics.FromImage(CikisResmi).Clear(Color.Black);
+            int x, y, i, j;
+            int SablonBoyutu = 3;
+            int ElemanSayisi = SablonBoyutu * SablonBoyutu;
+            for (x = (SablonBoyutu - 1) / 2; x < ResimGenisligi - (SablonBoyutu - 1) / 2; x++) //Resmi taramaya şablonun yarısı kadar dış kenarlardan içeride başlayacak ve bitirecek.
+            {
+                for (y = (SablonBoyutu - 1) / 2; y < ResimYuksekligi - (SablonBoyutu - 1) / 2; y++)
+                {
+                    bool RenkSiyah = false;
+                    for (i = -((SablonBoyutu - 1) / 2); i <= (SablonBoyutu - 1) / 2; i++)
+                    {
+                        for (j = -((SablonBoyutu - 1) / 2); j <= (SablonBoyutu - 1) / 2; j++)
+                        {
+                            OkunanRenk = GirisResmi.GetPixel(x + i, y + j);
+                            if (OkunanRenk.R < 128) //Siyah ise
+                                RenkSiyah = true;
+                        }
+                    }
+                    if (RenkSiyah == true) //Komşularda siyah varsa
+                    {
+                        Color KendiRengi = GirisResmi.GetPixel(x, y);
+                        if (KendiRengi.R > 128) //kendi rengin beyaz ise onu da siyah yap.
+                            CikisResmi.SetPixel(x, y, Color.FromArgb(255, 0, 0)); //siyah yerine kırmızı kullandık.Genişleyen bölgeyi görmek için
+                    }
+                    else //komşularda siyah yok ise kendi rengi yine aynı beyaz kalmalı.
+                        CikisResmi.SetPixel(x, y, Color.FromArgb(255, 255, 255));
+                }
+            }
+            return CikisResmi;
+        }
+
+        public static Bitmap ToplamaSiniraCekerek(Bitmap giris1, Bitmap giris2, int olcek1, int olcek2)
+        {
+            Color OkunanRenk1, OkunanRenk2;
+            Bitmap CikisResmi;
+            CikisResmi = new Bitmap(giris1.Width, giris1.Height);
+            int R, G, B;
+            for (int x = 0; x < giris1.Width; x++)
+            {
+                for (int y = 0; y < giris1.Height; y++)
+                {
+                    OkunanRenk1 = giris1.GetPixel(x, y);
+                    OkunanRenk2 = giris2.GetPixel(x, y);
+                    R = (OkunanRenk1.R * olcek1 / 100) + (OkunanRenk2.R * olcek2 / 100);
+                    G = (OkunanRenk1.G * olcek1 / 100) + (OkunanRenk2.G * olcek2 / 100);
+                    B = (OkunanRenk1.B * olcek1 / 100) + (OkunanRenk2.B * olcek2 / 100);
+                    if (R > 255) R = 255;
+                    if (G > 255) G = 255;
+                    if (B > 255) B = 255;
+                    if (R < 0) R = 0;
+                    if (G < 0) G = 0;
+                    if (B < 0) B = 0;
+                    CikisResmi.SetPixel(x, y, Color.FromArgb(R, G, B));
+                }
+            }
+            return CikisResmi;
+        }
+
+        public static Bitmap ToplamaNormalizasyon(Bitmap giris1, Bitmap giris2, int olcek1, int olcek2)
+        {
+            Color OkunanRenk1, OkunanRenk2;
+            Bitmap CikisResmi;
+            CikisResmi = new Bitmap(giris1.Width, giris1.Height);
+            int R, G, B;
+            int EnYuksekDeger = 0, EnDusukDeger = 0;
+            for (int x = 0; x < giris1.Width; x++)
+            {
+                for (int y = 0; y < giris1.Height; y++)
+                {
+                    OkunanRenk1 = giris1.GetPixel(x, y);
+                    OkunanRenk2 = giris2.GetPixel(x, y);
+                    R = (OkunanRenk1.R * olcek1 / 100) + (OkunanRenk2.R * olcek2 / 100);
+                    G = (OkunanRenk1.G * olcek1 / 100) + (OkunanRenk2.G * olcek2 / 100);
+                    B = (OkunanRenk1.B * olcek1 / 100) + (OkunanRenk2.B * olcek2 / 100);
+                    int Gri = (R + G + B) / 3;
+                    if (Gri > EnYuksekDeger) EnYuksekDeger = Gri;
+                    if (Gri < EnDusukDeger) EnDusukDeger = Gri;
+                }
+            }
+
+            int AltSinir = 0; if (EnDusukDeger > AltSinir) AltSinir = EnDusukDeger;
+            int UstSinir = 255; if (EnYuksekDeger < UstSinir) UstSinir = EnYuksekDeger;
+
+            for(int x = 0; x < giris1.Width; x++)
+            {
+                for (int y = 0; y < giris1.Height; y++)
+                {
+                    Color Renk1 = giris1.GetPixel(x, y);
+                    Color Renk2 = giris2.GetPixel(x, y);
+                    R = (Renk1.R * olcek1 / 100) + (Renk2.R * olcek2 / 100);
+                    G = (Renk1.G * olcek1 / 100) + (Renk2.G * olcek2 / 100);
+                    B = (Renk1.B * olcek1 / 100) + (Renk2.B * olcek2 / 100);
+                    int NormalDegerR = (((UstSinir - AltSinir) * (R - EnDusukDeger)) / (EnYuksekDeger - EnDusukDeger)) + AltSinir;
+                    int NormalDegerG = (((UstSinir - AltSinir) * (G - EnDusukDeger)) / (EnYuksekDeger - EnDusukDeger)) + AltSinir;
+                    int NormalDegerB = (((UstSinir - AltSinir) * (B - EnDusukDeger)) / (EnYuksekDeger - EnDusukDeger)) + AltSinir;
+                    if (NormalDegerR > 255) NormalDegerR = 255;
+                    if (NormalDegerG > 255) NormalDegerG = 255;
+                    if (NormalDegerB > 255) NormalDegerB = 255;
+                    if (NormalDegerR < 0) NormalDegerR = 0;
+                    if (NormalDegerG < 0) NormalDegerG = 0;
+                    if (NormalDegerB < 0) NormalDegerB = 0;
+                    CikisResmi.SetPixel(x, y, Color.FromArgb(NormalDegerR, NormalDegerG, NormalDegerB));
+                }
+            }
+            return CikisResmi;
+        }
+
+        public static Bitmap MantiksalOperatorGri(Bitmap giris1, Bitmap giris2, String mantiksalOperator)
+        {
+            Bitmap CikisResmi;
+            int ResimGenisligi = giris1.Width;
+            int ResimYuksekligi = giris2.Height;
+            CikisResmi = new Bitmap(ResimGenisligi, ResimYuksekligi);
+            Color Renk1, Renk2;
+            int x, y;
+            for (x = 0; x < ResimGenisligi; x++)
+ {
+                for (y = 0; y < ResimYuksekligi; y++)
+                {
+                    Renk1 = giris1.GetPixel(x, y);
+                    Renk2 = giris2.GetPixel(x, y);
+                    string binarySayi1 = Convert.ToString(Renk1.R, 2).PadLeft(8, '0');
+                    string binarySayi2 = Convert.ToString(Renk2.R, 2).PadLeft(8, '0');
+                    string Bit1 = null, Bit2 = null, StringIkiliSayi = null;
+                    for (int i = 0; i < 8; i++)
+                    {
+                        Bit1 = binarySayi1.Substring(i, 1);
+                        Bit2 = binarySayi2.Substring(i, 1);
+                        switch (mantiksalOperator)
+                        {
+                            case "AND":
+                                if (Bit1 == "1" && Bit2 == "1") StringIkiliSayi += "1";
+                                else StringIkiliSayi += "0";
+                                break;
+                            case "NAND":
+                                if (Bit1 == "1" && Bit2 == "1") StringIkiliSayi += "0";
+                                else StringIkiliSayi += "1";
+                                break;
+                            case "OR":
+                                if (Bit1 == "1" || Bit2 == "1") StringIkiliSayi += "1";
+                                else StringIkiliSayi += "0";
+                                break;
+                            case "NOR":
+                                if (Bit1 == "1" || Bit2 == "1") StringIkiliSayi += "0";
+                                else StringIkiliSayi += "1";
+                                break;
+                            case "XOR":
+                                if (Bit1 == Bit2) StringIkiliSayi += "0";
+                                else StringIkiliSayi += "1";
+                                break;
+                            case "XNOR":
+                                if (Bit1 == Bit2) StringIkiliSayi += "1";
+                                else StringIkiliSayi += "0";
+                                break;
+                            default:
+                                return null;
+                        }
+                    }
+                    int R = Convert.ToInt32(StringIkiliSayi, 2);
+                    CikisResmi.SetPixel(x, y, Color.FromArgb(R, R, R));
+                }
+            }
+            return CikisResmi;
+        }
+
+        public static Bitmap MantiksalOperator(Bitmap giris1, Bitmap giris2, string mantiksalOperator)
+        {
+            Bitmap CikisResmi;
+            int ResimGenisligi = giris1.Width;
+            int ResimYuksekligi = giris2.Height;
+            CikisResmi = new Bitmap(ResimGenisligi, ResimYuksekligi);
+            Color Renk1, Renk2;
+            int x, y;
+            int R = 0, G = 0, B = 0;
+            for (x = 0; x < ResimGenisligi; x++) 
+            {
+                for (y = 0; y < ResimYuksekligi; y++)
+                {
+                    Renk1 = giris1.GetPixel(x, y);
+                    Renk2 = giris2.GetPixel(x, y);
+                    string binarySayi1R = Convert.ToString(Renk1.R, 2).PadLeft(8, '0');
+                    string binarySayi2R = Convert.ToString(Renk2.R, 2).PadLeft(8, '0');
+                    string binarySayi1G = Convert.ToString(Renk1.G, 2).PadLeft(8, '0');
+                    string binarySayi2G = Convert.ToString(Renk2.G, 2).PadLeft(8, '0');
+                    string binarySayi1B = Convert.ToString(Renk1.B, 2).PadLeft(8, '0');
+                    string binarySayi2B = Convert.ToString(Renk2.B, 2).PadLeft(8, '0');
+                    string Bit1R = null, Bit1G = null, Bit1B = null, Bit2R = null, Bit2G = null, Bit2B = null;
+                    string StringIkiliSayiR = null, StringIkiliSayiG = null, StringIkiliSayiB = null;
+                    for (int i = 0; i < 8; i++)
+                    {
+                        Bit1R = binarySayi1R.Substring(i, 1);
+                        Bit2R = binarySayi2R.Substring(i, 1);
+                        Bit1G = binarySayi1G.Substring(i, 1);
+                        Bit2G = binarySayi2G.Substring(i, 1);
+                        Bit1B = binarySayi1B.Substring(i, 1);
+                        Bit2B = binarySayi2B.Substring(i, 1);
+                        switch (mantiksalOperator)
+                        {
+                            case "AND":
+                                if (Bit1R == "1" && Bit2R == "1") StringIkiliSayiR += "1"; // R
+                                else StringIkiliSayiR += "0";
+                                if (Bit1G == "1" && Bit2G == "1") StringIkiliSayiG += "1"; // G
+                                else StringIkiliSayiG += "0";
+                                if (Bit1B == "1" && Bit2B == "1") StringIkiliSayiB += "1"; // B
+                                else StringIkiliSayiB += "0";
+                                break;
+                            case "NAND":
+                                if (Bit1R == "1" && Bit2R == "1") StringIkiliSayiR += "0"; // R
+                                else StringIkiliSayiR += "1";
+                                if (Bit1G == "1" && Bit2G == "1") StringIkiliSayiG += "0"; // G
+                                else StringIkiliSayiG += "1";
+                                if (Bit1B == "1" && Bit2B == "1") StringIkiliSayiB += "0"; // B
+                                else StringIkiliSayiB += "1";
+                                break;
+                            case "OR":
+                                if (Bit1R == "1" || Bit2R == "1") StringIkiliSayiR += "1"; // R
+                                else StringIkiliSayiR += "0";
+                                if (Bit1G == "1" || Bit2G == "1") StringIkiliSayiG += "1"; // G
+                                else StringIkiliSayiG += "0";
+                                if (Bit1B == "1" || Bit2B == "1") StringIkiliSayiB += "1"; // B
+                                else StringIkiliSayiB += "0";
+                                break;
+                            case "NOR":
+                                if (Bit1R == "1" || Bit2R == "1") StringIkiliSayiR += "0"; // R
+                                else StringIkiliSayiR += "1";
+                                if (Bit1G == "1" || Bit2G == "1") StringIkiliSayiG += "0"; // G
+                                else StringIkiliSayiG += "1";
+                                if (Bit1B == "1" || Bit2B == "1") StringIkiliSayiB += "0"; // B
+                                else StringIkiliSayiB += "1";
+                                break;
+                            case "XOR":
+                                if (Bit1R == Bit2R) StringIkiliSayiR += "0"; // R
+                                else StringIkiliSayiR += "1";
+                                if (Bit1G == Bit2G) StringIkiliSayiG += "0"; // G
+                                else StringIkiliSayiG += "1";
+                                if (Bit1B == Bit2B) StringIkiliSayiB += "0"; // B
+                                else StringIkiliSayiB += "1";
+                                break;
+                            case "XNOR":
+                                if (Bit1R == Bit2R) StringIkiliSayiR += "1"; // R
+                                else StringIkiliSayiR += "0";
+                                if (Bit1G == Bit2G) StringIkiliSayiG += "1"; // G
+                                else StringIkiliSayiG += "0";
+                                if (Bit1B == Bit2B) StringIkiliSayiB += "1"; // B
+                                else StringIkiliSayiB += "0";
+                                break;
+                            default:
+                                return null;
+                        }
+                    }
+                    R = Convert.ToInt32(StringIkiliSayiR, 2);
+                    G = Convert.ToInt32(StringIkiliSayiG, 2);
+                    B = Convert.ToInt32(StringIkiliSayiB, 2);
+                    CikisResmi.SetPixel(x, y, Color.FromArgb(R, G, B));
+                }
+            }
+            return CikisResmi;
+        }
+
+        public static Bitmap MantiksalOperatorOlcekli(Bitmap giris1, string mantiksalOperator, int olcek, int sabit)
+        {
+            Bitmap CikisResmi;
+            int ResimGenisligi = giris1.Width;
+            int ResimYuksekligi = giris1.Height;
+            CikisResmi = new Bitmap(ResimGenisligi, ResimYuksekligi);
+            Color Renk1;
+            int x, y;
+            int R = 0, G = 0, B = 0;
+            string binarySayi2 = Convert.ToString(sabit, 2).PadLeft(8, '0');
+            for (x = 0; x < ResimGenisligi; x++)
+            {
+                for (y = 0; y < ResimYuksekligi; y++)
+                {
+                    Renk1 = giris1.GetPixel(x, y);
+                    string binarySayi1R = Convert.ToString(Renk1.R, 2).PadLeft(8, '0');
+                    string binarySayi1G = Convert.ToString(Renk1.G, 2).PadLeft(8, '0');
+                    string binarySayi1B = Convert.ToString(Renk1.B, 2).PadLeft(8, '0');
+                    string Bit1R = null, Bit1G = null, Bit1B = null;
+                    string StringIkiliSayiR = null, StringIkiliSayiG = null, StringIkiliSayiB = null;
+                    for (int i = 0; i < 8; i++)
+                    {
+                        Bit1R = binarySayi1R.Substring(i, 1);
+                        Bit1G = binarySayi1G.Substring(i, 1);
+                        Bit1B = binarySayi1B.Substring(i, 1);
+                        string Bit2 = binarySayi2.Substring(i, 1);
+                        switch (mantiksalOperator)
+                        {
+                            case "AND":
+                                if (Bit1R == "1" && Bit2 == "1") StringIkiliSayiR += "1"; // R
+                                else StringIkiliSayiR += "0";
+                                if (Bit1G == "1" && Bit2 == "1") StringIkiliSayiG += "1"; // G
+                                else StringIkiliSayiG += "0";
+                                if (Bit1B == "1" && Bit2 == "1") StringIkiliSayiB += "1"; // B
+                                else StringIkiliSayiB += "0";
+                                break;
+                            case "NAND":
+                                if (Bit1R == "1" && Bit2 == "1") StringIkiliSayiR += "0"; // R
+                                else StringIkiliSayiR += "1";
+                                if (Bit1G == "1" && Bit2 == "1") StringIkiliSayiG += "0"; // G
+                                else StringIkiliSayiG += "1";
+                                if (Bit1B == "1" && Bit2 == "1") StringIkiliSayiB += "0"; // B
+                                else StringIkiliSayiB += "1";
+                                break;
+                            case "OR":
+                                if (Bit1R == "1" || Bit2 == "1") StringIkiliSayiR += "1"; // R
+                                else StringIkiliSayiR += "0";
+                                if (Bit1G == "1" || Bit2 == "1") StringIkiliSayiG += "1"; // G
+                                else StringIkiliSayiG += "0";
+                                if (Bit1B == "1" || Bit2 == "1") StringIkiliSayiB += "1"; // B
+                                else StringIkiliSayiB += "0";
+                                break;
+                            case "NOR":
+                                if (Bit1R == "1" || Bit2 == "1") StringIkiliSayiR += "0"; // R
+                                else StringIkiliSayiR += "1";
+                                if (Bit1G == "1" || Bit2 == "1") StringIkiliSayiG += "0"; // G
+                                else StringIkiliSayiG += "1";
+                                if (Bit1B == "1" || Bit2 == "1") StringIkiliSayiB += "0"; // B
+                                else StringIkiliSayiB += "1";
+                                break;
+                            case "XOR":
+                                if (Bit1R == Bit2) StringIkiliSayiR += "0"; // R
+                                else StringIkiliSayiR += "1";
+                                if (Bit1G == Bit2) StringIkiliSayiG += "0"; // G
+                                else StringIkiliSayiG += "1";
+                                if (Bit1B == Bit2) StringIkiliSayiB += "0"; // B
+                                else StringIkiliSayiB += "1";
+                                break;
+                            case "XNOR":
+                                if (Bit1R == Bit2) StringIkiliSayiR += "1"; // R
+                                else StringIkiliSayiR += "0";
+                                if (Bit1G == Bit2) StringIkiliSayiG += "1"; // G
+                                else StringIkiliSayiG += "0";
+                                if (Bit1B == Bit2) StringIkiliSayiB += "1"; // B
+                                else StringIkiliSayiB += "0";
+                                break;
+                            default:
+                                return null;
+                        }
+                    }
+                    R = Convert.ToInt32(StringIkiliSayiR, 2);
+                    R *= olcek;
+                    if (R > 255) R = 255;
+                    G = Convert.ToInt32(StringIkiliSayiG, 2);
+                    G *= olcek;
+                    if (G > 255) G = 255;
+                    B = Convert.ToInt32(StringIkiliSayiB, 2);
+                    B *= olcek;
+                    if (B > 255) B = 255;
+                    CikisResmi.SetPixel(x, y, Color.FromArgb(R, G, B));
+                }
+            }
+            return CikisResmi;
+        }
+
+        public static Bitmap MantiksalOperatorOlcekliGri(Bitmap giris1, string mantiksalOperator, int olcek, int sabit)
+        {
+            Bitmap CikisResmi;
+            int ResimGenisligi = giris1.Width;
+            int ResimYuksekligi = giris1.Height;
+            CikisResmi = new Bitmap(ResimGenisligi, ResimYuksekligi);
+            Color Renk1;
+            int x, y;
+            string binarySayi2 = Convert.ToString(sabit, 2).PadLeft(8, '0');
+            for (x = 0; x < ResimGenisligi; x++)
+            {
+                for (y = 0; y < ResimYuksekligi; y++)
+                {
+                    Renk1 = giris1.GetPixel(x, y);
+                    string binarySayi1 = Convert.ToString(Renk1.R, 2).PadLeft(8, '0');
+                    string Bit1 = null, Bit2 = null, StringIkiliSayi = null;
+                    for (int i = 0; i < 8; i++)
+                    {
+                        Bit1 = binarySayi1.Substring(i, 1);
+                        Bit2 = binarySayi2.Substring(i, 1);
+                        switch (mantiksalOperator)
+                        {
+                            case "AND":
+                                if (Bit1 == "1" && Bit2 == "1") StringIkiliSayi += "1";
+                                else StringIkiliSayi += "0";
+                                break;
+                            case "NAND":
+                                if (Bit1 == "1" && Bit2 == "1") StringIkiliSayi += "0";
+                                else StringIkiliSayi += "1";
+                                break;
+                            case "OR":
+                                if (Bit1 == "1" || Bit2 == "1") StringIkiliSayi += "1";
+                                else StringIkiliSayi += "0";
+                                break;
+                            case "NOR":
+                                if (Bit1 == "1" || Bit2 == "1") StringIkiliSayi += "0";
+                                else StringIkiliSayi += "1";
+                                break;
+                            case "XOR":
+                                if (Bit1 == Bit2) StringIkiliSayi += "0";
+                                else StringIkiliSayi += "1";
+                                break;
+                            case "XNOR":
+                                if (Bit1 == Bit2) StringIkiliSayi += "1";
+                                else StringIkiliSayi += "0";
+                                break;
+                            default:
+                                return null;
+                        }
+                    }
+                    int R = Convert.ToInt32(StringIkiliSayi, 2);
+                    R *= olcek;
+                    if (R > 255) R = 255;
+                    CikisResmi.SetPixel(x, y, Color.FromArgb(R, R, R));
                 }
             }
             return CikisResmi;
